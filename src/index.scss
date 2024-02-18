@@ -66,3 +66,20 @@ body, #root, .app {
 .nav-logo-text {
   letter-spacing: 4px;
 }
+
+
+.location-modal-city, .location-modal-country {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  line-height: 8px;
+}
+
+.location-modal-country {
+  margin-bottom: 8px;
+}
+
+.location-modal-band {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 1.6rem;
+}

@@ -25,7 +25,7 @@ const fileNameArray = {
 
 const fetchImages = async (folderName) => {
   try {
-    const folderPath = `/img/${folderName}`;
+    const folderPath = `nrm5/img/${folderName}`;
     const fileNames = fileNameArray[folderName].images;
     const imagePromises = fileNames.map((fileName) => fetch(`${folderPath}/${fileName}`));
 
@@ -145,8 +145,10 @@ function App() {
         <div className="sidebar">
       {showLocationModal && selectedLocation && (
           <div className="location-modal-content">
-            <h2>{selectedLocation.name}</h2>
-            <PreviewGrid mediaItems={selectedLocation.mediaItems} />
+            <h2 className="location-modal-name">{selectedLocation.name}</h2>
+            <h3 className="location-modal-country">{selectedLocation.country}</h3>
+            <hr/>
+            <PreviewGrid city={selectedLocation.name} country={selectedLocation.country} mediaItems={selectedLocation.mediaItems} />
             {console.log(selectedLocation)}
           </div>
       )}

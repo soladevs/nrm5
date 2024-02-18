@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Modal from './Modal'; 
 import ReactPlayer from 'react-player';
 
-const PreviewGrid = ({ mediaItems }) => {
+const PreviewGrid = ({ city, country, mediaItems }) => {
   const [selectedMedia, setSelectedMedia] = useState(null); 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOverlayActive, setIsOverlayActive] = useState(false);
@@ -45,7 +45,7 @@ const PreviewGrid = ({ mediaItems }) => {
         console.log("Grid: ", mediaArray)
         return (
           <React.Fragment key={band}>
-            <h3 style={{'display': 'block'}}>{band}</h3>
+            <h3 className="location-modal-band" style={{'display': 'block'}}>{band}</h3>
             <div className={isMinimized ? 'content minimized' : 'content'}>
               {
                 mediaArray.slice(0, isMinimized ? 4 : mediaArray.length).map((media, index) => (
@@ -91,7 +91,8 @@ const PreviewGrid = ({ mediaItems }) => {
               <p>submitted by:</p>
               <h2>{selectedMedia.submitter}</h2>
               <p>location:</p>
-              <h2>{selectedMedia.country}</h2>
+              <h2>{city}</h2>
+              <h3>{country}</h3>
               <button className="modal-close-button" onClick={handleClose}>Close</button>
             </div>
           </div>
