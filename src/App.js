@@ -25,7 +25,7 @@ const fileNameArray = {
 
 const fetchImages = async (folderName) => {
   try {
-    const folderPath = `nrm5/img/${folderName}`;
+    const folderPath = `./img/${folderName}`;
     const fileNames = fileNameArray[folderName].images;
     const imagePromises = fileNames.map((fileName) => fetch(`${folderPath}/${fileName}`));
 
