@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MapComponent from './components/MapComponent';
 import './index.scss';
 import './App.scss';
@@ -16,16 +16,16 @@ const fileNameArray = {
                         '11.jpg', '12.jpg', '13.jpg']},
   'cleopatrick/tunbridgewells':{'images': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg',
                     '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg']},
-  'cleopatrick/nashville': {'images':['1.jpg']},
-  'rtp/bremen':{'images': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg',
+  'cleopatrick/nashville': {'images':['1.JPG']},
+  'readytheprince/bremen':{'images': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg',
                        '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg']},
-  'rtp/dresden':{'images': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg',
+  'readytheprince/dresden':{'images': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg',
   '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg']},
 };
 
 const fetchImages = async (folderName) => {
   try {
-    const folderPath = `./img/${folderName}`;
+    const folderPath = `/img/${folderName}`;
     const fileNames = fileNameArray[folderName].images;
     const imagePromises = fileNames.map((fileName) => fetch(`${folderPath}/${fileName}`));
 
@@ -64,14 +64,14 @@ const tours = [
   {
     strokeColor: "white",
     locations: [
-      { lat: 53.079296, lng: 8.801694, name: 'Bremen', folderName: 'cleopatrick/bremen', text: 'Submitted by: John Doe' },
-      { lat: 34.052235, lng: -118.243683, name: 'Los Angeles', folderName: 'cleopatrick/losangeles', text: 'The entertainment capital of the world, famous for Hollywood and beautiful beaches.'},
-      { lat: 51.507351, lng: -0.127758, name: 'London', folderName: 'cleopatrick/london', text: 'Known for its impressive architecture and rich history.'},
-      { lat: 53.551086, lng: 9.993682, name: 'Hamburg', folderName: 'cleopatrick/hamburg', text: 'A bustling metropolis known for its iconic landmarks and vibrant culture.'},
-      { lat: 36.162663, lng: -86.781601, name: 'Nashville', folderName: 'cleopatrick/nashville', text: 'The entertainment capital of the world, famous for Hollywood and beautiful beaches.'},
-      { lat: 51.1324, lng: 0.2637, name: 'Tunbridge Wells', folderName: 'cleopatrick/tunbridgewells', text: 'Known for its impressive architecture and rich history.'},
-      { lat: 51.0504, lng: 13.7373, name: 'Dresden', folderName: 'rtp/dresden', text: 'Known for its impressive architecture and rich history.'},
-      { lat: 53.027296, lng: 9.201694, name: 'Bremen', folderName: 'rtp/bremen', text: 'Known for its impressive architecture and rich history.'},
+      { lat: 53.19296, lng: 8.501694, name: 'Bremen', country: 'Germany', folderName: 'cleopatrick/bremen', text: 'Submitted by: John Doe' },
+      { lat: 34.052235, lng: -118.243683, name: 'Los Angeles', country: 'USA', folderName: 'cleopatrick/losangeles', text: 'The entertainment capital of the world, famous for Hollywood and beautiful beaches.'},
+      { lat: 51.507351, lng: -0.127758, name: 'London', country: 'UK', folderName: 'cleopatrick/london', text: 'Known for its impressive architecture and rich history.'},
+      { lat: 53.551086, lng: 9.993682, name: 'Hamburg', country: 'Germany', folderName: 'cleopatrick/hamburg', text: 'A bustling metropolis known for its iconic landmarks and vibrant culture.'},
+      { lat: 36.162663, lng: -86.781601, name: 'Nashville', country: 'USA', folderName: 'cleopatrick/nashville', text: 'The entertainment capital of the world, famous for Hollywood and beautiful beaches.'},
+      { lat: 51.1324, lng: 0.2637, name: 'Tunbridge Wells', country: 'UK', folderName: 'cleopatrick/tunbridgewells', text: 'Known for its impressive architecture and rich history.'},
+      { lat: 51.0504, lng: 13.7373, name: 'Dresden', country: 'Germany', folderName: 'readytheprince/dresden', text: 'Known for its impressive architecture and rich history.'},
+      { lat: 53.027296, lng: 9.201694, name: 'Bremen', country: 'Germany', folderName: 'readytheprince/bremen', text: 'Known for its impressive architecture and rich history.'},
     ]
   },
 ];
@@ -83,9 +83,6 @@ tours.forEach((tour) => {
     });
   });
 });
-
-console.log(tours);
-
 
 function App() {
   const [selectedTour, setSelectedTour] = useState(null);
@@ -135,12 +132,12 @@ function App() {
   const closeLocationModal = () => {
     setShowLocationModal(false);
   };
-
+  
   return (
     <div className="app">
       <nav className="navbar">
         <ul className="nav-links">
-          <span>NRM 5TH ANNIVERSARY</span>
+          <span className="nav-logo-text">NRM 5TH ANNIVERSARY</span>
         </ul>
         </nav>
       <main className="main-content">

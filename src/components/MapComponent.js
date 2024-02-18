@@ -1,10 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Polyline, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import CustomMarker from './CustomMarker';
 import countriesBorders from './borders.json';
 
 const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => {
+  const [randomColors, setRandomColors] = useState();
+
   const handleMarkerClick = (location, tour) => {
     onSelectLocation(location, tour);
   };
@@ -12,7 +14,6 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => 
   const handleLineClick = (tour) => {
     onSelectTour(tour);
   };
-
   
   const defaultStyle = {
     color: "#cccccc", // Default border color
@@ -53,7 +54,6 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => 
       console.error('Feature is missing ISO_A2 property:', feature);
     }
   };
-  
 
   const TourPolyline = ({ tour }) => {
     const positions = tour.locations.map(loc => [loc.lat, loc.lng]);
@@ -62,17 +62,63 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => 
   };
 
   const generateRandomColor = () => {
-    // Fixed green and blue values for 70% saturation
-    const green = Math.floor(Math.random() * 128) + Math.floor(Math.random() * 128); // Random value between 128 and 255
-    const blue = Math.floor(Math.random() * 128) + Math.floor(Math.random() * 128); // Random value between 128 and 255
-    const red = Math.floor(Math.random() * 256); // Random value between 0 and 255
+    const red = Math.floor(Math.random()  * 256); // Random value between 0 and 255
+    const green = Math.floor(Math.random() * 256); // Random value between 0 and 255
+    const blue = Math.floor(Math.random() * 256); // Random value between 0 and 255
   
     // Convert the RGB values to hexadecimal and format the color
     const colorHex = `#${red.toString(16).padStart(2, '0')}${green.toString(16).padStart(2, '0')}${blue.toString(16).padStart(2, '0')}`;
   
     return colorHex;
   }
+
+  // Initialize randomColors as a 2D array
+ useEffect(() => {
+    const initialRandomColors = tours[0].locations.map(() => generateRandomColor());
+
+    // Set the initial random colors in state
+    setRandomColors(initialRandomColors);
+    console.log(initialRandomColors);
     
+  }, [tours]);
+
+  const getTotalMediaItemsLength = (mediaItems) => {
+    let totalLength = 0;
+
+    for (const band in mediaItems) {
+      if (mediaItems[band].mediaItems) {
+        totalLength += mediaItems[band].mediaItems.length;
+      }
+    }
+    
+    return totalLength;
+  };
+
+  const renderCustomMarker = (tour, location, index) => {
+    if (location.mediaItems) {
+      const mediaItemsLength = getTotalMediaItemsLength(location.mediaItems);
+      return (
+        <CustomMarker
+          key={`${location.name}-${index}`}
+          position={{ lat: location.lat, lng: location.lng }}
+          onClick={() => handleMarkerClick(location, tour)}
+          colors={randomColors} 
+          index={index}
+          mediaItemsLength={mediaItemsLength}
+          strokeColor={'#1c1c1c'}
+          city={location.name}
+          country={location.country}
+        />
+      );
+
+    } else {
+      setTimeout(() => {
+        onSelectLocation(location, tour);
+        renderCustomMarker(tour, location, index);
+      }, 250);
+    }
+      };
+
   return (
       <MapContainer 
       style={{ width: '75vw', height: '90vh' }}
@@ -92,18 +138,11 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => 
         style={defaultStyle}
         onEachFeature={onEachFeature}
       />
-      {tours.map((tour) =>
-        tour.locations.map((location, index) => (
-          <CustomMarker
-            key={index}
-            position={{ lat: location.lat, lng: location.lng }}
-            onClick={() => handleMarkerClick(location, tour)}
-            color={ '#ffca28'} 
-            //color={generateRandomColor()}
-            strokeColor={'#1c1c1c'}
-            scale={10*Math.random()*0.5}
-            style={{boxShadow: "0 4px 6px rgba(0, 0, 0, 100%)"}}
-          />
+      {tours.length > 0 && tours && tours[0].locations && randomColors && (
+        tours.map((tour, tourIndex) => (
+          tour.locations.map((location, index) => (
+            renderCustomMarker(tour, location, index)
+          ))
         ))
       )}
 

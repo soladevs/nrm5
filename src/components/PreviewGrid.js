@@ -39,7 +39,7 @@ const PreviewGrid = ({ mediaItems }) => {
 
   return (
     <div className="preview-grid">
-    {
+    { mediaItems &&
         Object.keys(mediaItems).map((band) => {
         const mediaArray = mediaItems[band].mediaItems;
         console.log("Grid: ", mediaArray)
