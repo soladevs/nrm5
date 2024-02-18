@@ -90,16 +90,28 @@ $background3: url('grunge-banner-3.svg');
     margin-right: 15vw;
     margin-bottom: 0;
     padding-bottom: 0;
+
+    font-size: 3.8em;
+
+    @media screen and (min-width: 768px) {
+        font-size: 4.5em;
+    }
+
 }
 
 .hover-info-country {
-    font-size: 2.7rem; /* Use relative units for font size */
     font-family: 'Chalk';
     z-index: 300;
     color: aliceblue;
     position: relative;
     animation: appear-ltr 0.25s ease-out alternate;
     margin-top: -2rem;
+
+    font-size: 2.5em;
+
+    @media screen and (min-width: 768px) {
+        font-size: 3.5em;
+    }
 }
   
   .custom-marker:hover .hover-text {
