@@ -11,8 +11,8 @@ const CustomMarker = ({ position, onClick, colors, index, mediaItemsLength, city
   const [size, setSize] = useState(15);
   const [icon, setIcon] = React.useState(null);
   const [zIndex, setZIndex] = useState(20);
+  const [classNameToAdd, setClassNameToAdd] = useState('svg-first');
   const [hovered, setHovered] = useState(false);
-
 
   const handleMouseEnter = () => {
     setHovered(true);
@@ -20,6 +20,13 @@ const CustomMarker = ({ position, onClick, colors, index, mediaItemsLength, city
 
   const handleMouseLeave = () => {
     setHovered(false);
+    if (classNameToAdd === 'svg-first') {
+      setClassNameToAdd('svg-second');
+    } else if (classNameToAdd === 'svg-second') {
+      setClassNameToAdd('svg-third');
+    } else {
+      setClassNameToAdd('svg-first');
+    }
   };
 
   useEffect(() => {
@@ -77,7 +84,7 @@ const CustomMarker = ({ position, onClick, colors, index, mediaItemsLength, city
       {hovered && (
         <div className="hover-text">
           <p className='hover-info hover-info-city'>{city}</p>
-          <div className='hover-info hover-info-background'></div>
+          <div className={'hover-info hover-info-background ' + classNameToAdd + ''}></div>
           <p className='hover-info hover-info-country'>{country}</p>
         </div>
       )}

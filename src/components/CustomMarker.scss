@@ -7,6 +7,10 @@
     font-family: 'Chalk';
     src: url('Chalk-Regular.ttf') format('truetype');
 }
+
+$backgrounds: (url('grunge-banner-1.svg'), url('grunge-banner-2.svg'), url('grunge-banner-3.svg'));
+
+
 .marker-wrapper:hover {
     :nth-of-type(even) {
         cursor: pointer;
@@ -68,7 +72,6 @@
     pointer-events: none;
     max-width: 60vw;
     transform: translateX(15%);
-
 }
 
 .hover-info-city {
@@ -102,8 +105,17 @@
     font-size: 5rem;
   }
 
+  .svg-first {
+    background-image: url('grunge-banner-1.svg');
+    }
+    .svg-second { 
+        background-image: url('grunge-banner-2.svg');
+    }
+    .svg-third {
+        background-image: url('grunge-banner-3.svg');
+    }
+  
   .hover-info-background {
-    background-image: url('grunge-banner-3.svg');
     background-size: cover; /* Adjust as needed */
     background-repeat: no-repeat; /* Adjust as needed */
     background-position-x: right;
