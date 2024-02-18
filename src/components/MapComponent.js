@@ -47,10 +47,6 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => 
 
   const onEachFeature = (feature, layer) => {
     if (feature.properties && feature.properties.ISO_A2) {
-      layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlight,
-      });
       layer.bindTooltip(feature.properties.NAME, { permanent: false, direction: "auto", sticky: true });
     } else {
       // Log an error or handle features without ISO_A2 appropriately
@@ -105,6 +101,7 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => 
             color={ '#ffca28'} 
             //color={generateRandomColor()}
             strokeColor={'#1c1c1c'}
+            scale={10*Math.random()*0.5}
             style={{boxShadow: "0 4px 6px rgba(0, 0, 0, 100%)"}}
           />
         ))
