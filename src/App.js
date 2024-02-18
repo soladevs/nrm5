@@ -25,7 +25,7 @@ const fileNameArray = {
 
 const fetchImages = async (folderName) => {
   try {
-    const folderPath = `./img/${folderName}`;
+    const folderPath = `nrm5/img/${folderName}`;
     const fileNames = fileNameArray[folderName].images;
     const imagePromises = fileNames.map((fileName) => fetch(`${folderPath}/${fileName}`));
 
@@ -140,11 +140,7 @@ function App() {
     <div className="app">
       <nav className="navbar">
         <ul className="nav-links">
-          <li>Home</li>
-          <li>About</li>
           <span>NRM 5TH ANNIVERSARY</span>
-          <li>Submit</li>
-          <li>Help</li>
         </ul>
         </nav>
       <main className="main-content">
