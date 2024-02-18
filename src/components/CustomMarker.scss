@@ -8,7 +8,9 @@
     src: url('Chalk-Regular.ttf') format('truetype');
 }
 
-$backgrounds: (url('grunge-banner-1.svg'), url('grunge-banner-2.svg'), url('grunge-banner-3.svg'));
+$background1: url('grunge-banner-1.svg');
+$background2: url('grunge-banner-2.svg');
+$background3: url('grunge-banner-3.svg');
 
 
 .marker-wrapper:hover {
@@ -106,13 +108,13 @@ $backgrounds: (url('grunge-banner-1.svg'), url('grunge-banner-2.svg'), url('grun
   }
 
   .svg-first {
-    background-image: url('grunge-banner-1.svg');
+    background-image: $background1;
     }
     .svg-second { 
-        background-image: url('grunge-banner-2.svg');
+        background-image: $background2;
     }
     .svg-third {
-        background-image: url('grunge-banner-3.svg');
+        background-image: $background3;
     }
   
   .hover-info-background {
