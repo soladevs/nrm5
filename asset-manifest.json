@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/nrm5/static/css/main.1db6874a.css",
-    "main.js": "/nrm5/static/js/main.521b12f7.js",
+    "main.css": "/nrm5/static/css/main.42d85f50.css",
+    "main.js": "/nrm5/static/js/main.3dd45c31.js",
     "reactPlayerYouTube.js": "/nrm5/static/js/reactPlayerYouTube.4dccf4b7.chunk.js",
     "reactPlayerSoundCloud.js": "/nrm5/static/js/reactPlayerSoundCloud.9c785268.chunk.js",
     "reactPlayerVimeo.js": "/nrm5/static/js/reactPlayerVimeo.1d15207b.chunk.js",
@@ -16,9 +16,12 @@
     "reactPlayerFilePlayer.js": "/nrm5/static/js/reactPlayerFilePlayer.9adbbfcd.chunk.js",
     "reactPlayerPreview.js": "/nrm5/static/js/reactPlayerPreview.c1ece8ed.chunk.js",
     "static/js/787.f211f806.chunk.js": "/nrm5/static/js/787.f211f806.chunk.js",
+    "static/media/grunge-banner-3.svg": "/nrm5/static/media/grunge-banner-3.dde8071c724e6c46d6bc.svg",
+    "static/media/Violense.ttf": "/nrm5/static/media/Violense.9a9e241f59597ba024bb.ttf",
+    "static/media/Chalk-Regular.ttf": "/nrm5/static/media/Chalk-Regular.f8c9cde696ac5163dbf5.ttf",
     "index.html": "/nrm5/index.html",
-    "main.1db6874a.css.map": "/nrm5/static/css/main.1db6874a.css.map",
-    "main.521b12f7.js.map": "/nrm5/static/js/main.521b12f7.js.map",
+    "main.42d85f50.css.map": "/nrm5/static/css/main.42d85f50.css.map",
+    "main.3dd45c31.js.map": "/nrm5/static/js/main.3dd45c31.js.map",
     "reactPlayerYouTube.4dccf4b7.chunk.js.map": "/nrm5/static/js/reactPlayerYouTube.4dccf4b7.chunk.js.map",
     "reactPlayerSoundCloud.9c785268.chunk.js.map": "/nrm5/static/js/reactPlayerSoundCloud.9c785268.chunk.js.map",
     "reactPlayerVimeo.1d15207b.chunk.js.map": "/nrm5/static/js/reactPlayerVimeo.1d15207b.chunk.js.map",
@@ -35,7 +38,7 @@
     "787.f211f806.chunk.js.map": "/nrm5/static/js/787.f211f806.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1db6874a.css",
-    "static/js/main.521b12f7.js"
+    "static/css/main.42d85f50.css",
+    "static/js/main.3dd45c31.js"
   ]
 }
