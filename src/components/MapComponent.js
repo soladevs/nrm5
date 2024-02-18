@@ -135,7 +135,7 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => 
       <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}.png" />
       <GeoJSON
         data={countriesBorders}
-        style={defaultStyle}
+        style={{color: '#FFC927', fill: false, weight: 0.1}}
         onEachFeature={onEachFeature}
       />
       {tours.length > 0 && tours && tours[0].locations && randomColors && (
