@@ -102,8 +102,8 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => 
             key={index}
             position={{ lat: location.lat, lng: location.lng }}
             onClick={() => handleMarkerClick(location, tour)}
-            //color={activeTour ? (activeTour === tour.name ? tour.color : '#ffca28') : '#ffca28'} 
-            color={generateRandomColor()}
+            color={ '#ffca28'} 
+            //color={generateRandomColor()}
             strokeColor={'#1c1c1c'}
             style={{boxShadow: "0 4px 6px rgba(0, 0, 0, 100%)"}}
           />
