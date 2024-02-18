@@ -1,0 +1,74 @@
+.app {
+  display: flex;
+  height: 100vh;
+  flex-direction: row; /* Ensure children are side by side */
+}
+
+.map-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Take up available space */
+  overflow: hidden;
+}
+
+.bottombar {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #fff;
+}
+
+.sidebar {
+  width: 25vw; /* Set a fixed width for the sidebar */
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+button {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.sidebar img {
+  width: 100%;
+  height: auto;
+  max-height: 200px; /* Adjust as needed */
+  object-fit: cover;
+}
+
+.logo-container {
+  text-align: center;
+  padding: 10px;
+}
+
+.logo {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  object-fit: contain;
+}
+
+.location-info img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.location-info p {
+  margin-top: 10px;
+}
+
+.custom-marker .marker-wrapper {
+  transition: transform 0.2s ease-in-out;
+  transform-origin: bottom center;
+}
+
+.custom-marker:hover .marker-wrapper {
+  transform: scale(1.2);
+}
+
+.custom-marker .marker-wrapper svg {
+  width: 100%;
+  height: 100%;
+}
+
