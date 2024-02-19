@@ -15,6 +15,7 @@
   align-items: center;
   justify-content: center;
   z-index: 999;
+  position: fixed;
 }
 
 .nav-logo-text {
@@ -199,7 +200,7 @@ img {
   position: absolute;
   padding: 24px;
   top: 70vh;
-  overflow-y: auto;
+  overflow: visible;
   background-color: #1c1c1c;
   color: #f8f8f8;
   box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.5);
@@ -227,8 +228,8 @@ img {
 }
 
 .main-content, .leaflet-container {
-  overflow-x: hidden;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
   display: flex;
   flex-shrink: 1;
   position: fixed;
@@ -378,7 +379,7 @@ body.modal-open .leaflet-control-container {
   transition: height 0.3s; /* Add a transition for smooth animation */
   z-index: 999;
 
-  @media screen and (min-width: 460px) {
+  @media screen and (min-width: 924px) {
     z-index: unset;
   }
 }
