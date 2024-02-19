@@ -113,7 +113,7 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => 
 
     } else {
       setTimeout(() => {
-        onSelectLocation(location, tour);
+        onSelectLocation(null, null);
         renderCustomMarker(tour, location, index);
       }, 250);
     }
@@ -121,8 +121,8 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => 
 
   return (
       <MapContainer 
-      style={{ width: '75vw', height: '90vh' }}
-      center={[0, 0]} 
+      style={{ width: '100vw', height: '100vh' }}
+      center={[33, 44]} 
       zoom={3} 
       minZoom={3}
       scrollWheelZoom={true}

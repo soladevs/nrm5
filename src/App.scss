@@ -1,340 +1,401 @@
 /* App.css */
 .app {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #111;
-  }
-  
-  .navbar {
-    height: 10vh;
-    background-color: #111;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #111;
+}
 
-  .nav-logo-text {
-    letter-spacing: 4px;
-  }
+.navbar {
+  height: 10vh;
+  width: 100vw;
+  background-color: #111;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
 
-  .nav-links {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
+.nav-logo-text {
+  letter-spacing: 4px;
+}
 
-  .nav-links li, .nav-links span {
-    padding: 2vw 2vh;
-    height: 100%;
-    justify-content: center;
-    vertical-align: middle;
-    text-transform: uppercase;
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.nav-links li, .nav-links span {
+  padding: 2vw 2vh;
+  height: 100%;
+  justify-content: center;
+  vertical-align: middle;
+  text-transform: uppercase;
 }
 
 .nav-links span {
-    padding-bottom: 0;
-    margin-top: -1vh;
-    font-size: 1.5rem;
+  padding-bottom: 0;
+  margin-top: -1vh;
+  font-size: 1.5rem;
 
-    @media screen and (min-width: 768px) {
-      font-size: 2rem;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 2rem;
+  }
 }
-  
-  .main-content {
-    overflow-x: hidden;
-    overflow: scroll;
-    display: flex;
-    flex-shrink: 1;
-  }
-  
-  .carousel-overlay {
-    position: relative;
-    height: 15vh;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-    overflow: visible;
-    overflow-x: auto; /* Enable horizontal scrolling for images */
-  }
 
-  .carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    font-size: 5em;
-    color: white;
-    text-shadow: black 0 0 11px;
-    cursor: pointer;
-    z-index: 2; /* Ensure it's above the carousel images */
-  }
-  
-  .carousel-button.left {
-    left: 37vw; /* Adjust as needed */
-  }
-  
-  .carousel-button.right {
-    right: 34vw; /* Adjust as needed */
-  }
-  
-  .carousel-image {
-    height: 100%;
-    margin: 0 5px; /* Spacing between images */
-  }
-  
-  .hidden {
-    visibility: hidden; /* Hide the middle image */
-  } 
-  
+.carousel-overlay {
+  position: relative;
+  height: 15vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  overflow: visible;
+  overflow-x: auto; /* Enable horizontal scrolling for images */
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 5em;
+  color: white;
+  text-shadow: black 0 0 11px;
+  cursor: pointer;
+  z-index: 2; /* Ensure it's above the carousel images */
+}
+
+.carousel-button.left {
+  left: 37vw; /* Adjust as needed */
+}
+
+.carousel-button.right {
+  right: 34vw; /* Adjust as needed */
+}
+
+.carousel-image {
+  height: 100%;
+  margin: 0 5px; /* Spacing between images */
+}
+
+.hidden {
+  visibility: hidden; /* Hide the middle image */
+} 
+
 
 .placeholder-circle p {
-    color: white;
+  color: white;
 }
 
 .modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-  }
-  
-  .modal {
-    background: #1c1c1c;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: auto;
-    max-width: 400px;
-    text-align: center;
-  }
-  
-  .modal-close-button {
-    float: right;
-    border: none;
-    background: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: white;
-  }
-  
-  .modal-content {
-    margin-top: 20px;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
 
-  .modal-content video {
-    z-index: 1000;
-    position: fixed;
-  }
-  
-  .modal-tour-button {
-    display: block;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: #f8f8f8;
-    width: 100%;
-  }
+.modal {
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: auto;
+  max-width: 400px;
+  text-align: center;
+}
 
-.location-modal {
-    position: fixed;
-    top: 10vh;
-    right: 0;
-    height: 100%;
-    z-index: 10; /* Ensure the modal is above all other content */
-    display: flex;
-    color: white;
+.modal-close-button {
+  margin:48px;
 }
 
 .modal-content {
-  
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 20px;
+}
 
-  img {
-    max-width: 50vw!important;
-  }
+.modal-content video {
+  z-index: 1000;
+  position: fixed;
+}
+
+.modal-tour-button {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #f8f8f8;
+  width: 100%;
+}
+
+.location-modal {
+  position: fixed;
+  top: 10vh;
+  right: 0;
+  height: 100%;
+  z-index: 10; /* Ensure the modal is above all other content */
+  display: flex;
+  color: white;
+}
+
+.location-modal-name {
+  margin: 0;
+  margin-bottom: 4%;
+}
+
+.location-modal-name, .location-modal-country {
+  margin: 0;
+}
+
+.modal-content {
+
+margin-left: auto;
+margin-right: auto;
+
+img {
+  max-width: 50vw!important;
+}
 }
 
 .location-modal-content {
-    border-radius: 5px;
-    position: relative;
-    overflow-y: auto;
-    max-width: 24vw;
+  border-radius: 5px;
+  position: relative;
 }
 
 .close-button {
-    position: absolute;
-    top: 2vh;
-    right: 10px;
-    border: none;
-    background: none;
-    font-size: 30px;
-    cursor: pointer;
+  position: absolute;
+  top: 2vh;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 .tour-control-button {
-    z-index: 2; /* Below the placeholder but above other elements */
-    border: none;
-    background: white;
-    padding: 10px;
-    border-radius: 20px; /* Rounded corners for the buttons */
-    cursor: pointer;
-    /* Positioning will be handled by the buttonStyle function */
+  z-index: 2; /* Below the placeholder but above other elements */
+  border: none;
+  background: white;
+  padding: 10px;
+  border-radius: 20px; /* Rounded corners for the buttons */
+  cursor: pointer;
+  /* Positioning will be handled by the buttonStyle function */
 }
 
 .sidebar {
-    width: 25vw; /* Set a fixed width for the sidebar */
-    padding: 24px;
+  display: block;
+  position: absolute;
+  padding: 24px;
+  top: 60vh;
+  overflow-y: auto;
+  background-color: #1c1c1c;
+  color: #f8f8f8;
+  box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.5);
+  z-index: 401;
+  border-top: 1vw solid #FFC927;
+  width: 95vw;
+  padding-left: 2.5vw;
+  padding-right: 2.5vw;
+
+  @media screen and (min-width: 1024px) {
+    flex: 1;
+    display: flex;
     border-left: 1vw solid #FFC927;
-    overflow-y: auto;
-    flex-shrink: 0;
-    background-color: #1c1c1c;
-    color: #f8f8f8;
-    box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.5);
-    z-index: 401;
-  }
-  .carousel-image {
-    display: none; /* Hide all images by default */
-  }
-  
-  /* You'll dynamically assign a class to the visible image based on the index */
-  .carousel-image-visible {
-    display: block; /* Show the image */
-  }
-  
-
-  .content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-  }
-  
-  .thumbnail img,
-  .thumbnail video {
-    width: auto;
-    max-height: 25vh;
-    cursor: pointer;
-  }
-  
-  .modal-overlay {
+    margin-top: 0;
+    height: 90vh;
+    border-top: unset;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(4px) brightness(0.5);
-    max-height: 100vh;
+    top: 9vh;
+    right: 0;
+    width: 40vw; /* Set a fixed width for the sidebar */
+    
+  padding-left: 1vw;
+  padding-right: 1vw;
   }
-  
-  .modal-content {
+}
+
+.main-content, .leaflet-container {
+  overflow-x: hidden;
+  overflow: scroll;
+  display: flex;
+  flex-shrink: 1;
+  position: fixed;
+  max-height: 70vh;
+  z-index: 25;
+
+  @media screen and (min-width: 1024px) {
+    z-index: 20;
+    max-height: unset;
     position: relative;
-    max-width: 90%;
-    max-height: 90%;
-    display: flex;
-    backdrop-filter: blur(5px) brightness(0.5);
-    z-index: 1000;
+    border-left: 1vw solid #FFC927;
+    border-top: unset;
+
   }
-  
-  .modal-content img,
-  .modal-content video {
-    max-width: 100%;
-    max-height: 100vh;
-    position: relative;
-    z-index: 1000;
-    display: flex;
-    flex: 50%;
-  }
-  
-  .thumbnail video, .react-player__preview, .react-player-preview {
-    max-width: fit-content;
-    max-width: 150px;
-    background-color: black;
-    max-height: 25vh;
+}
+
+.preview-grid {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: grid;
+  overflow-y: auto;
+  overflow-x: hidden;
+  gap: 8px;
+
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+
+  @media screen and (min-width: 400px) {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 
-  .modal-sidebar {
-    display: flex;
-    padding-top: 20vh;
-    background-color: #1c1c1c;
-    min-width: 14vw;
-    padding-left: 1vw;
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
   }
+}
 
-  .modal-sidebar-content {
-    display: block;
-    float: left;
-  }
+.carousel-image {
+  display: none; /* Hide all images by default */
+}
 
-  .modal-close-button {
-    margin-top: 24px;
-    float: left;
-    background-color: white;
-    color: black; 
-    border-radius: 4px;
-    font-size: 1rem;
-  }
+/* You'll dynamically assign a class to the visible image based on the index */
+.carousel-image-visible {
+  display: block; /* Show the image */
+}
 
-  body.modal-open .leaflet-control-container {
-    display: none;
-  }
 
-  .content {
-    overflow: hidden;
-    transition: height 0.3s; /* Add a transition for smooth animation */
-    margin-bottom: 5vh;
-  }
-  
-  .content.minimized {
-    min-height: 22vh;
-    max-height: 65vh;
-    margin-bottom: 5vh;
-  }
-  
-  .show-more-button {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 30px; /* Set the height of your show more button */
-    background-color: #FFC927; /* Set your desired background color */
-    border-color: #FFC927;
-    transition: height 0.3s; /* Add a transition for smooth animation */
-  }
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
 
-  .content::after {
-    display: none;
-  }
+.thumbnail img,
+.thumbnail video {
+  width: auto;
+  max-height: 25vh;
+  cursor: pointer;
+}
 
-  .content.minimized::after {
-    display: block;
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 15vh;
-    margin-bottom: 3vh;
-    background: linear-gradient(transparent 0%, #1c1c1ccc 55%, #1c1c1c); /* Set your desired transparent-black gradient */
-    transition: background 0.3s; /* Add a transition for smooth animation */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px) brightness(0.5);
+  max-height: 100vh;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  backdrop-filter: blur(5px) brightness(0.5);
+  z-index: 1000;
+}
+
+.modal-content img,
+.modal-content video {
+  max-width: 100%;
+  max-height: 100vh;
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  flex: 50%;
+}
+
+.thumbnail video, .react-player__preview, .react-player-preview {
+  max-width: fit-content;
+  max-width: 150px;
+  background-color: black;
+  max-height: 25vh;
+}
+
+.modal-sidebar {
+  display: flex;
+  padding-top: 20vh;
+  background-color: #1c1c1c;
+  min-width: 20vw;
+  padding-left: 1vw;
+  z-index: 1000;
+  position: relative;
+
+}
+
+.modal-sidebar-content {
+  display: block;
+  float: left;
+}
+
+.modal-close-button {
+  margin-top: 24px;
+  float: left;
+  background-color: white;
+  color: black; 
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+body.modal-open .leaflet-control-container {
+  display: none;
+}
+
+.content {
+  overflow: hidden;
+  transition: height 0.3s; /* Add a transition for smooth animation */
+  margin-bottom: 5vh;
+}
+
+.content.minimized {
+  min-height: 22vh;
+  max-height: 65vh;
+  margin-bottom: 5vh;
+}
+
+.show-more-button, .modal-close-button {
+  padding: 4px 24px;
+  text-align: center;
+  height: 30px; /* Set the height of your show more button */
+  background-color: #FFC927; /* Set your desired background color */
+  border-color: #FFC927;
+  transition: height 0.3s; /* Add a transition for smooth animation */
+  z-index: 999;
+
+  @media screen and (min-width: 460px) {
+    z-index: unset;
   }
-  
+}
+
+.content::after {
+  display: none;
+}
+
+.content.minimized::after {
+  display: block;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: 3vh;
+  background: linear-gradient(transparent 0%, #1c1c1ccc 55%, #1c1c1c); /* Set your desired transparent-black gradient */
+  transition: background 0.3s; /* Add a transition for smooth animation */
+}

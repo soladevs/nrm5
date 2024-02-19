@@ -46,6 +46,7 @@ const PreviewGrid = ({ city, country, mediaItems }) => {
         return (
           <React.Fragment key={band}>
             <h3 className="location-modal-band" style={{'display': 'block'}}>{band}</h3>
+            <hr/>
             <div className={isMinimized ? 'content minimized' : 'content'}>
               {
                 mediaArray.slice(0, isMinimized ? 4 : mediaArray.length).map((media, index) => (

@@ -76,13 +76,17 @@ const tours = [
   },
 ];
 
-tours.forEach((tour) => {
-  tour.locations.forEach((location) => {
-     fetchImages(location.folderName).then((mediaItems) => {
+const fetchAllImages = async () => {
+  await Promise.all(tours.map(async (tour) => {
+    await Promise.all(tour.locations.map(async (location) => {
+      const mediaItems = await fetchImages(location.folderName);
       location.mediaItems = mediaItems;
-    });
-  });
-});
+    }));
+  }));
+};
+
+// Call the fetchAllImages function to load all media items for each location
+fetchAllImages();
 
 function App() {
   const [selectedTour, setSelectedTour] = useState(null);
@@ -140,19 +144,17 @@ function App() {
           <span className="nav-logo-text">NRM 5TH ANNIVERSARY</span>
         </ul>
         </nav>
-      <main className="main-content">
-        <MapComponent tours={tours} onSelectTour={onSelectTour} onSelectLocation={onSelectLocation} activeTour={selectedTour?.name} />
         <div className="sidebar">
       {showLocationModal && selectedLocation && (
           <div className="location-modal-content">
             <h2 className="location-modal-name">{selectedLocation.name}</h2>
             <h3 className="location-modal-country">{selectedLocation.country}</h3>
-            <hr/>
             <PreviewGrid city={selectedLocation.name} country={selectedLocation.country} mediaItems={selectedLocation.mediaItems} />
-            {console.log(selectedLocation)}
           </div>
       )}
       </div>
+      <main className="main-content">
+        <MapComponent tours={tours} onSelectTour={onSelectTour} onSelectLocation={onSelectLocation} activeTour={selectedTour?.name} />
       </main>
     </div>
   );
