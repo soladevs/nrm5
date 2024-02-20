@@ -52,16 +52,6 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour, fetch
     layer.setStyle(defaultStyle);
   };
   
-
-  const onEachFeature = (feature, layer) => {
-    if (feature.properties && feature.properties.ISO_A2) {
-      layer.bindTooltip(feature.properties.NAME, { permanent: false, direction: "auto", sticky: true });
-    } else {
-      // Log an error or handle features without ISO_A2 appropriately
-      console.error('Feature is missing ISO_A2 property:', feature);
-    }
-  };
-
   const TourPolyline = ({ tour }) => {
     const positions = tour.locations.map(loc => [loc.lat, loc.lng]);
   
@@ -135,7 +125,6 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour, fetch
       <GeoJSON
         data={countriesBorders}
         style={{color: '#FFC927', fill: false, weight: 0.1}}
-        onEachFeature={onEachFeature}
       />
         
         {tours.map((tour, tourIndex) => (
