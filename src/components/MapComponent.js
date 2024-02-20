@@ -116,7 +116,7 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour, fetch
       minZoom={3}
       scrollWheelZoom={true}
       maxBounds={[
-        [-90, -360],
+        [-90, -180],
         [90, 360]
       ]}
       maxBoundsViscosity={1.0}

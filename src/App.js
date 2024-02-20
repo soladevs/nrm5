@@ -130,6 +130,7 @@ function App() {
         {!showLocationModal && !selectedLocation && (
           <div className="location-modal-content">
           <h4 className="location-modal-name"><i>Note: Tap a marked location to view content submitted from there!</i></h4>
+          <h4 className="location-modal-name">Move the map around with your finger or mouse to explore.</h4>
           <div className='location-modal-landing-text'>
             <p>Welcome!</p>
             <p>As a little celebration for the 5th anniversary, we asked fans from all over the world to submit their pictures, art and covers.</p>
