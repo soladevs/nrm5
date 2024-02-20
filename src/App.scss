@@ -289,7 +289,6 @@
 .thumbnail img,
 .thumbnail video {
   width: auto;
-  max-height: 20vh;
   cursor: pointer;
   object-fit: contain;
   width: 100%;
@@ -353,7 +352,6 @@
 }
 
 .thumbnail video, .react-player__preview, .react-player-preview {
-  max-width: fit-content;
   max-width: 150px;
   background-color: black;
   max-height: 25vh;
