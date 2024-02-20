@@ -49,30 +49,34 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
         const mediaArray = mediaItems[band].mediaItems;
         console.log("Grid: ", mediaArray)
         return (
-          <React.Fragment key={band}>
-            <h3 className="location-modal-band" style={{'display': 'block'}}>{band}</h3>
-            <div className={isMinimized ? 'content minimized' : 'content'}>
-              {
-                mediaArray.slice(0, isMinimized ? 4 : mediaArray.length).map((media, index) => (
-                  <div key={index + "" + media.src} className="thumbnail" onClick={() => handleMediaClick(media)}>
-                    {media.type === 'image' ? (
-                      <img src={media.src} alt="Thumbnail" />
-                    ) : (
-                      <ReactPlayer className="react-player-preview" url={media.src} controls={false} light={true} />
-                    )}
-                  </div>
-                ))
-              }
+          <div>
+            <React.Fragment key={band}>
+              <div>
+              <h3 className="location-modal-band" style={{'display': 'block'}}>{band}</h3>
+              <div className={isMinimized ? 'content minimized' : 'content'}>
+                {
+                  mediaArray.slice(0, isMinimized ? 4 : mediaArray.length).map((media, index) => (
+                    <div key={index + "" + media.src} className="thumbnail" onClick={() => handleMediaClick(media)}>
+                      {media.type === 'image' ? (
+                        <img src={media.src} alt="Thumbnail" />
+                      ) : (
+                        <ReactPlayer className="react-player-preview" url={media.src} controls={false} light={true} />
+                      )}
+                    </div>
+                  ))
+                }
+              </div>
+              </div>
               {mediaArray.length > 4 && (
-                <button
-                  className={`show-more-button ${isMinimized ? 'minimized' : ''}`}
-                  onClick={handleShowMoreClick}
-                >
-                  {isMinimized ? 'Show More' : 'Show Less'}
-                </button>
-              )}
-            </div>
-          </React.Fragment>
+                  <button
+                    className={`show-more-button ${isMinimized ? 'minimized' : ''}`}
+                    onClick={handleShowMoreClick}
+                  >
+                    {isMinimized ? 'Show More' : 'Show Less'}
+                  </button>
+                )}
+            </React.Fragment>
+          </div>
         );
       })
     }

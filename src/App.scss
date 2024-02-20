@@ -366,45 +366,48 @@ body.modal-open .leaflet-control-container {
 }
 
 .content {
-  overflow: hidden;
   transition: height 0.3s; /* Add a transition for smooth animation */
-  margin-bottom: 5vh;
+  padding-bottom: 1vh;
 }
 
 .content.minimized {
   min-height: 22vh;
-  max-height: 65vh;
-  margin-bottom: 5vh;
+  max-height: 55vh;
+}
+
+.show-more-button {
+  overflow: visible;
 }
 
 .show-more-button, .modal-close-button {
-  padding: 4px 24px;
+  padding: 6px 12px;
   text-align: center;
-  height: 30px; /* Set the height of your show more button */
+  font-family: 'Violense';
+  font-weight: bold;
+  font-size: 2rem;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #FFC927; /* Set your desired background color */
   border-color: #FFC927;
+  border-bottom: 4px solid darken(#FFC927, 30%);
   color: #1c1c1c;
   transition: height 0.3s; /* Add a transition for smooth animation */
   z-index: 999;
-
+  text-align: center;
+  display: flex;
+  flex: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   @media screen and (min-width: 924px) {
     z-index: unset;
+  }
+
+  &:hover {
+    background-color: darken(#FFC927, 10%);
+    transform: scale(1.1);
   }
 }
 
 .content::after {
   display: none;
-}
-
-.content.minimized::after {
-  display: block;
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 15vh;
-  margin-bottom: 3vh;
-  background: linear-gradient(transparent 0%, #1c1c1ccc 55%, #1c1c1c); /* Set your desired transparent-black gradient */
-  transition: background 0.3s; /* Add a transition for smooth animation */
 }
