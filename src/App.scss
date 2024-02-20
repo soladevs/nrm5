@@ -299,17 +299,12 @@
 
 .thumbnail:has(img) {
   :hover {
-    border: 1px solid #FFC927;
     transform: scale(1.1);
   }
 }
 
 .react-player-preview {
   max-height: 23vh;
-
-  :hover {
-    border: 1px solid #FFC927;
-  }
 }
 
 .modal-overlay {
