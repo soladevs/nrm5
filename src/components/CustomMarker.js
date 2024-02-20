@@ -85,7 +85,7 @@ const CustomMarker = ({ position, onClick, colors, index, mediaItemsLength, city
       {hovered && (
         <div className="hover-text">
           <p className='hover-info hover-info-city'>{city}</p>
-          <div className={'hover-info hover-info-background ' + classNameToAdd + ''}></div>
+          <div className={'hover-info hover-info-background hover-info-svg ' + classNameToAdd + ''}></div>
           <p className='hover-info hover-info-country'>{country}</p>
         </div>
       )}
