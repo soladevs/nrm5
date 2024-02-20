@@ -137,7 +137,7 @@ function App() {
         )}
         </div>
       <main className="main-content">
-        <MapComponent tours={tours} onSelectTour={onSelectTour} onSelectLocation={onSelectLocation} activeTour={selectedTour?.name} fetchImages={fetchImages} />
+        <MapComponent tours={tours} onSelectTour={onSelectTour} onSelectLocation={onSelectLocation} activeTour={selectedTour?.name} fetchImages={fetchImages} selectedLocation={selectedLocation} />
       </main>
     </div>
   );

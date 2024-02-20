@@ -5,7 +5,7 @@ import './CustomMarker.scss';
 import NRMHand from './nrmb.png';
 
 
-const CustomMarker = ({ position, onClick, index, mediaItemsLength, city, country }) => {
+const CustomMarker = ({ position, onClick, index, mediaItemsLength, city, country, selectedLocation }) => {
   const [mediaLength, setMediaLength] = useState(null);
   const iconRef = React.useRef();
   const [size, setSize] = useState(15);
@@ -18,25 +18,32 @@ const CustomMarker = ({ position, onClick, index, mediaItemsLength, city, countr
   const randomNumberInRange = (min, max) => { return Math.floor(Math.random() * (max - min + 1)) + min; };
 
   const handleMouseEnter = () => {
-    setHovered(true);
   };
 
   const handleMouseLeave = () => {
-    setHovered(false);
-    if (classNameToAdd === 'svg-brush') {
-      setClassNameToAdd('svg-clean');
-    } else if (classNameToAdd === 'svg-clean') {
-      setClassNameToAdd('svg-graffiti');
-    } else {
-      setClassNameToAdd('svg-brush');
-    }
   };
 
   useEffect(() => {
     if (size !== null && size !== undefined) {
-      setZIndex(100 - size); // Adjust the formula based on your specific requirements
+      setZIndex(100 - size);
     }
   }, [size]);
+
+  useEffect(() => {
+    if(selectedLocation && selectedLocation.name === city) {
+      
+      setHovered(true);
+    } else {
+      setHovered(false);
+      if (classNameToAdd === 'svg-brush') {
+        setClassNameToAdd('svg-clean');
+      } else if (classNameToAdd === 'svg-clean') {
+        setClassNameToAdd('svg-graffiti');
+      } else {
+        setClassNameToAdd('svg-brush');
+      }
+    }
+  }, [selectedLocation, city, hovered]);
 
   useEffect(() => {
     if (mediaItemsLength !== null) {

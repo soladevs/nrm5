@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import CustomMarker from './CustomMarker';
 import countriesBorders from './borders.json';
 
-const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour, fetchImages }) => {
+const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour, fetchImages, selectedLocation }) => {
   const [mediaItems, setMediaItems] = useState({});
 
   const handleMarkerClick = async (location, tour) => {
@@ -95,6 +95,7 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour, fetch
         strokeColor={'#1c1c1c'}
         city={location.name}
         country={location.country}
+        selectedLocation={selectedLocation}
       />
     );
   };
