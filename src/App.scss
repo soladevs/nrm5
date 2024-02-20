@@ -179,6 +179,11 @@
   margin-left: 2vw;
   margin-top: 2vh;
   position: relative;
+  @media screen and (min-width: 1024px) {
+    margin-top: 0;
+    margin-left: 0;
+    
+  }
 }
 
 .location-modal-landing-text {
