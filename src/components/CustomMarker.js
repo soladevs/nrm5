@@ -11,7 +11,7 @@ const CustomMarker = ({ position, onClick, index, mediaItemsLength, city, countr
   const [size, setSize] = useState(15);
   const [icon, setIcon] = React.useState(null);
   const [zIndex, setZIndex] = useState(20);
-  const [classNameToAdd, setClassNameToAdd] = useState('svg-first');
+  const [classNameToAdd, setClassNameToAdd] = useState('svg-brush');
   const [hovered, setHovered] = useState(false);
   const colorToUse ='#FFC927'
 
@@ -23,12 +23,12 @@ const CustomMarker = ({ position, onClick, index, mediaItemsLength, city, countr
 
   const handleMouseLeave = () => {
     setHovered(false);
-    if (classNameToAdd === 'svg-first') {
-      setClassNameToAdd('svg-second');
-    } else if (classNameToAdd === 'svg-second') {
-      setClassNameToAdd('svg-third');
+    if (classNameToAdd === 'svg-brush') {
+      setClassNameToAdd('svg-clean');
+    } else if (classNameToAdd === 'svg-clean') {
+      setClassNameToAdd('svg-graffiti');
     } else {
-      setClassNameToAdd('svg-first');
+      setClassNameToAdd('svg-brush');
     }
   };
 
