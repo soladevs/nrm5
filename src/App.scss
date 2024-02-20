@@ -120,10 +120,6 @@
   text-align: center;
 }
 
-.modal-close-button {
-  margin:32px;
-}
-
 .modal-content video {
   z-index: 1000;
   position: fixed;
@@ -375,13 +371,11 @@
 }
 
 .modal-close-button {
-  float: right;
   background-color: white;
   color: black; 
-  border-radius: 12px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  margin:32px;
   font-size: 1rem;
+  text-align: center;
 }
 
 body.modal-open .leaflet-control-container {
@@ -401,12 +395,18 @@ body.modal-open .leaflet-control-container {
 
 .show-more-button {
   overflow: visible;
-
   margin-bottom: 7vh;
 }
 
 .show-more-button, .modal-close-button {
+  
+  border-radius: 8px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+
+
   padding: 6px 12px;
+  text-shadow: 0 1px 2px lighten(#FFC927, 90%);
   text-align: center;
   font-family: 'Violense';
   font-weight: bold;
