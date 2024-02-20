@@ -79,6 +79,7 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
       
 
       {selectedMedia && (
+        <div className='modal-content-wrapper'>
         <Modal isOpen={isModalOpen} onClose={handleClose}>
           {selectedMedia.type === 'image' ? (
             <img src={selectedMedia.src} alt="Full Size" />
@@ -91,17 +92,23 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
               playing={true}
           />
           )}
+          <div></div>
           <div className='modal-sidebar'>
             <div className="modal-sidebar-content">
-              <p>submitted by:</p>
-              <h2>{selectedMedia.submitter}</h2>
-              <p>location:</p>
-              <h2>{city}</h2>
-              <h3>{country}</h3>
+              <div>
+                <p>submitted by:</p>
+                <h2>{selectedMedia.submitter}</h2>
+              <div>
+                <p>location:</p>
+                <h2>{city}, </h2>
+                <h2>{country}</h2>
+              </div>
+              </div>
               <button className="modal-close-button" onClick={handleClose}>Close</button>
             </div>
           </div>
         </Modal>
+        </div>
       )}
     </div>
   );

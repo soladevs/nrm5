@@ -120,10 +120,6 @@
   margin:48px;
 }
 
-.modal-content {
-  margin-top: 20px;
-}
-
 .modal-content video {
   z-index: 1000;
   position: fixed;
@@ -160,16 +156,6 @@
   margin: 0;
 }
 
-.modal-content {
-
-margin-left: auto;
-margin-right: auto;
-
-img {
-  max-width: 50vw!important;
-}
-}
-
 .location-modal-content {
   border-radius: 5px;
   position: relative;
@@ -200,7 +186,7 @@ img {
   position: absolute;
   padding: 24px;
   top: 70vh;
-  overflow: visible;
+  overflow: hidden;
   background-color: #1c1c1c;
   color: #f8f8f8;
   box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.5);
@@ -220,7 +206,7 @@ img {
     position: fixed;
     top: 9vh;
     right: 0;
-    width: 35vw; /* Set a fixed width for the sidebar */
+    width: 35vw; 
     overflow-y: scroll;
     padding-left: 2rem;
     
@@ -311,21 +297,27 @@ img {
 
 .modal-content {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
-  display: flex;
   backdrop-filter: blur(5px) brightness(0.5);
   z-index: 1000;
+  margin-top: 20px;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .modal-content img,
 .modal-content video {
-  max-width: 100%;
-  max-height: 100vh;
   position: relative;
   z-index: 1000;
-  display: flex;
-  flex: 50%;
+
+  max-height: 70vh;
+  width: auto;
+
+  @media screen and (min-width: 1024px) {
+    max-width: 80vw;
+    max-height: 80vh;
+    
+  }
 }
 
 .thumbnail video, .react-player__preview, .react-player-preview {
@@ -336,24 +328,32 @@ img {
 }
 
 .modal-sidebar {
-  display: flex;
-  padding-top: 20vh;
-  background-color: #1c1c1c;
-  min-width: 20vw;
+  background-color: #f8f8f8;
   padding-left: 1vw;
   z-index: 1000;
   position: relative;
-
 }
 
 .modal-sidebar-content {
   display: block;
-  float: left;
+  max-height: 25vh;
+  float: right;
+
+  p, h2 {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-top: 4px;
+    margin-right: 2px;
+  }
+
+    div {
+      text-align: center;
+      margin-right: 12px;
+    }
 }
 
 .modal-close-button {
-  margin-top: 24px;
-  float: left;
+  float: right;
   background-color: white;
   color: black; 
   border-radius: 4px;
@@ -382,6 +382,7 @@ body.modal-open .leaflet-control-container {
   height: 30px; /* Set the height of your show more button */
   background-color: #FFC927; /* Set your desired background color */
   border-color: #FFC927;
+  color: #1c1c1c;
   transition: height 0.3s; /* Add a transition for smooth animation */
   z-index: 999;
 
