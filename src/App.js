@@ -139,7 +139,7 @@ function App() {
             <hr></hr>
             <p>A huge thank you to cleopatrick, ready the prince and zig mentality for bringing us all together. Wherever we are in the world, we know what good rock is - here's to many more years of it.</p>
             <p>Thank you to FGMads for organising the anniversary projects, and to everyone who submitted content and time to help bring this project to life.</p>
-            <p>Feedback and suggestions are more than welcome, send an email or reach me <a href="https://soladevs.github.io/contact">here</a>!</p>
+            <p>Feedback and suggestions are more than welcome, send an email or reach me <a href="https://soladevs.github.io/#contact">here</a>!</p>
             <p> - sola</p>
           </div>
         </div>
