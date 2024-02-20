@@ -92,14 +92,15 @@ $background3: url('grunge-banner-3.svg');
   animation: appear-ltr 0.15s ease-in alternate;
   display: inline-block;
   margin-top: 65vh;
-  margin-bottom: 1rem;
   text-transform: uppercase;
   min-width: fit-content;
   width: 50vw;
   font-size: 4.5em;
+  margin-bottom: 1rem;
 
   @media screen and (min-width: 768px) {
     font-size: 6.5em;
+    margin-bottom: 1.5rem;
   }
 
 }
