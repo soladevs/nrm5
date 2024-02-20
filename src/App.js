@@ -5,37 +5,30 @@ import './index.scss';
 import './App.scss';
 import PreviewGrid from './components/PreviewGrid';
 import ReactPlayer from 'react-player';
+import contentMetadata from './content/content-metadata.json';
 
-const fileNameArray = {
-  'cleopatrick/bremen':{'images': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg',
-                       '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg']},
-  'cleopatrick/losangeles':{'images': ['1.jpg', '2.jpg']},
-  'cleopatrick/london':{'images': ['1.jpg', '1.mp4', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg',
-            '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg', '19.jpg', '20.jpg',
-            '21.jpg', '22.jpg', '23.jpg', '2.mp4', '3.mp4', '4.mp4',]},
-  'cleopatrick/hamburg':{'images': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg',
-                        '11.jpg', '12.jpg', '13.jpg']},
-  'cleopatrick/tunbridgewells':{'images': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg',
-                    '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg']},
-  'cleopatrick/nashville': {'images':['1.JPG']},
-  'readytheprince/bremen':{'images': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg',
-                       '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg']},
-  'readytheprince/dresden':{'images': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg',
-  '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg']},
-};
-
+//"Bremen", "Dresden", "Hamburg", "London", "Los Angeles", "Nashville", "Tunbridge Wells", "Birmingham"
+//Austin, Boston, Bristol, Guelph, Newcastle, New York City, San Francisco, Toronto
 const tours = [
   {
     strokeColor: "white",
     locations: [
-      { lat: 53.19296, lng: 8.501694, name: 'Bremen', country: 'Germany', folderName: 'cleopatrick/bremen', text: 'Submitted by: John Doe' },
-      { lat: 34.052235, lng: -118.243683, name: 'Los Angeles', country: 'USA', folderName: 'cleopatrick/losangeles', text: 'The entertainment capital of the world, famous for Hollywood and beautiful beaches.'},
-      { lat: 51.507351, lng: -0.127758, name: 'London', country: 'UK', folderName: 'cleopatrick/london', text: 'Known for its impressive architecture and rich history.'},
-      { lat: 53.551086, lng: 9.993682, name: 'Hamburg', country: 'Germany', folderName: 'cleopatrick/hamburg', text: 'A bustling metropolis known for its iconic landmarks and vibrant culture.'},
-      { lat: 36.162663, lng: -86.781601, name: 'Nashville', country: 'USA', folderName: 'cleopatrick/nashville', text: 'The entertainment capital of the world, famous for Hollywood and beautiful beaches.'},
-      { lat: 51.1324, lng: 0.2637, name: 'Tunbridge Wells', country: 'UK', folderName: 'cleopatrick/tunbridgewells', text: 'Known for its impressive architecture and rich history.'},
-      { lat: 51.0504, lng: 13.7373, name: 'Dresden', country: 'Germany', folderName: 'readytheprince/dresden', text: 'Known for its impressive architecture and rich history.'},
-      { lat: 53.027296, lng: 9.201694, name: 'Bremen', country: 'Germany', folderName: 'readytheprince/bremen', text: 'Known for its impressive architecture and rich history.'},
+      { lat: 53.0793, lng: 8.8017, name: 'Bremen', country: 'Germany', bands: ['cleopatrick', 'readytheprince']},
+      { lat: 34.052235, lng: -118.243683, name: 'Los Angeles', country: 'USA', bands: ['cleopatrick']},
+      { lat: 51.507351, lng: -0.127758, name: 'London', country: 'UK', bands: ['cleopatrick']},
+      { lat: 53.551086, lng: 9.993682, name: 'Hamburg', country: 'Germany', bands: ['cleopatrick']},
+      { lat: 36.162663, lng: -86.781601, name: 'Nashville', country: 'USA', bands: ['cleopatrick']},
+      { lat: 51.1324, lng: 0.2637, name: 'Tunbridge Wells', country: 'UK', bands: ['cleopatrick']},
+      { lat: 51.0504, lng: 13.7373, name: 'Dresden', country: 'Germany', bands: ['readytheprince']},
+      { lat: 52.4862, lng: -1.8904, name: 'Birmingham', country: 'UK', bands: ['cleopatrick']},
+      { lat: 30.2672, lng: -97.7431, name: 'Austin', country: 'UK', bands: ['cleopatrick']},
+      { lat: 42.3601, lng: -71.0589, name: 'Boston', country: 'UK', bands: ['cleopatrick']},
+      { lat: 51.4545, lng: -2.5879, name: 'Bristol', country: 'UK', bands: ['cleopatrick']},
+      { lat: 43.5448, lng: -80.2482, name: 'Guelph', country: 'Canada', bands: ['cleopatrick']},
+      { lat: 54.9783, lng: -1.6178, name: 'Newcastle', country: 'UK', bands: ['cleopatrick']},
+      { lat: 40.7128, lng: -74.0060, name: 'New York City', country: 'UK', bands: ['cleopatrick']},
+      { lat: 37.7749, lng: -122.4194, name: 'San Francisco', country: 'UK', bands: ['cleopatrick']},
+      { lat: 43.6532, lng: -79.3832, name: 'Toronto', country: 'UK', bands: ['cleopatrick']},
     ]
   },
 ];
@@ -50,42 +43,31 @@ function App() {
   const [showTourModal, setShowTourModal] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false); 
 
-  const fetchImages = async (folderName) => {
-    console.log('fetching images from folder:', folderName);
+  const fetchImages = (city) => {
     try {
-      const folderPath = `./img/${folderName}`;
-      const fileNames = fileNameArray[folderName].images;
-      const imagePromises = fileNames.map((fileName) => fetch(`${folderPath}/${fileName}`));
-  
-      const mediaItems = await Promise.all(imagePromises);
-  
       const mediaItemsWithMetadata = {};
-  
-      const bandName = folderName.split('/')[0];
-  
-      if (!mediaItemsWithMetadata[bandName]) {
-        mediaItemsWithMetadata[bandName] = {
-          mediaItems: [],
-        };
-      }
-  
-      mediaItems.forEach((media) => {
-        mediaItemsWithMetadata[bandName].mediaItems.push({
-          src: media.url,
-          type: media.url.endsWith('.mp4') ? 'video' : 'image',
-          submitter: 'John Doe',
-          country: 'USA',
-        });
+    
+      contentMetadata.forEach((metadata) => {
+        if (metadata.city === city) {
+          const band = metadata.band;
+          if (!mediaItemsWithMetadata[band]) {
+            mediaItemsWithMetadata[band] = {
+              mediaItems: [],
+            };
+          }
+          mediaItemsWithMetadata[band].mediaItems.push({
+            src: metadata.src,
+            type: metadata.type,
+            submitter: metadata.submitter,
+            country: metadata.country,
+            city: metadata.city,
+          });
+        }
       });
-  
-      console.log('Media items:', mediaItemsWithMetadata);
-      
+    
       return mediaItemsWithMetadata;
-    } catch (error) {
-      console.error('Error fetching images:', error);
-    } finally {
+    } catch (error) {console.error(error);} finally {
       setImagesLoaded(true);
-      console.log('Images loaded:', imagesLoaded);
     }
   };
 

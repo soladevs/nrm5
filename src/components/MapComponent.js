@@ -9,7 +9,7 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour, fetch
 
   const handleMarkerClick = async (location, tour) => {
     try {
-      const newMediaItems = await fetchImages(location.folderName);
+      const newMediaItems = fetchImages(location.name);
       location.mediaItems = newMediaItems;
       setMediaItems(newMediaItems);
       onSelectLocation(location, tour);
