@@ -60,9 +60,12 @@ $background3: url('grunge-banner-3.svg');
     filter: brightness(1.2) blur(0px) contrast(1.1);
   }
 
+  45% {
+    transform: scale(1.6);
+  }
   100% {
     filter: brightness(1.4) contrast(1.4);
-    transform: scale(1.4);
+    transform: scale(1.2);
   }
 }
 
