@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, Polyline, GeoJSON, useMap } from 'react-leaflet';
+import React, { useState, useEffect } from 'react';
+import { MapContainer, TileLayer, Polyline, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import CustomMarker from './CustomMarker';
 import countriesBorders from './borders.json';
@@ -22,12 +22,6 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour, fetch
     onSelectTour(tour);
   };
 
-  const handleMapClick = () => {
-    if (selectedLocation) {
-      onSelectLocation(null, null);
-    }
-  }
-  
   const defaultStyle = {
     color: "#cccccc", // Default border color
     weight: 2,
@@ -87,6 +81,23 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour, fetch
     return totalLength;
   };
 
+  // Select the .leaflet-container element
+  const leafletContainer = document.querySelector('.leaflet-container');
+
+  // Add an event listener to the .leaflet-container element
+  leafletContainer && leafletContainer.addEventListener('click', function(event) {
+    if(event && event.target) {
+      const isMarkerClicked = event.target.classList.contains('marker-image');
+      event.stopPropagation();
+      
+      if (!isMarkerClicked) {
+        if (selectedLocation) {
+          onSelectLocation(null, null);
+        }
+      }
+    }
+  });
+
 
   const renderCustomMarker = (tour, location, index) => {
     const locationMediaItems = mediaItems[location.folderName]?.mediaItems || [];
@@ -119,9 +130,6 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour, fetch
         [90, 360]
       ]}
       maxBoundsViscosity={1.0}
-      eventHandlers={{
-        click: handleMapClick, // Attach the click event handler to the map
-      }}
       >
       <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}.png" />
       <GeoJSON
