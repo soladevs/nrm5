@@ -24,7 +24,7 @@ const tours = [
       { lat: 51.4545, lng: -2.5879, name: 'Bristol', country: 'UK', bands: ['cleopatrick']},
       // { lat: 43.5448, lng: -80.2482, name: 'Guelph', country: 'Canada', bands: ['cleopatrick']},
       { lat: 54.9783, lng: -1.6178, name: 'Newcastle', country: 'UK', bands: ['cleopatrick']},
-      { lat: 40.7128, lng: -74.0060, name: 'New York City', country: 'USA', bands: ['cleopatrick']},
+      { lat: 40.7128, lng: -74.0060, name: 'NYC', country: 'USA', bands: ['cleopatrick']},
       { lat: 37.7749, lng: -122.4194, name: 'San Francisco', country: 'USA', bands: ['cleopatrick']},
       { lat: 43.6532, lng: -79.3832, name: 'Toronto', country: 'Canada', bands: ['cleopatrick']},
       { lat: 31.0461 , lng: 34.8516, name: 'Israel', country:' ', bands: ['cleopatrick']},
