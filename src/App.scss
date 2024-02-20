@@ -161,6 +161,15 @@
   position: relative;
 }
 
+.location-modal-landing-text {
+  max-width: 60vw;
+
+  @media screen and (min-width: 1024px) {
+    max-width: 25vw;
+    
+  }
+}
+
 .close-button {
   position: absolute;
   top: 2vh;
@@ -436,4 +445,17 @@ body.modal-open .leaflet-control-container {
 
 .content::after {
   display: none;
+}
+
+a {
+  color: #FFC927;
+  &:hover{
+    font-size: 1.5rem;
+  }
+  &:visited {
+    color: #FFC927;
+  }  
+  &:active {
+    color: #FFC927;
+  }
 }

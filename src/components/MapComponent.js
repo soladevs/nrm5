@@ -121,7 +121,7 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour, fetch
   return (
       <MapContainer 
       style={{ width: '100vw', height: '100vh' }}
-      center={[40.7128, -74]} 
+      center={[51.57167000, 3.70417000]} 
       zoom={2} 
       minZoom={3}
       scrollWheelZoom={true}
