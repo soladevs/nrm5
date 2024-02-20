@@ -281,9 +281,15 @@
   cursor: pointer;
 }
 
-.thumbnail {
+.thumbnail:has(img) {
   :hover {
-      transform: scale(1.1);
+    border: 1px solid #FFC927;
+    transform: scale(1.1);
+  }
+}
+.react-player-preview {
+  :hover {
+    border: 1px solid #FFC927;
   }
 }
 
