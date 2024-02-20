@@ -28,9 +28,10 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
     });
 
     // Scroll to the top of the grid after updating the isMinimized state
-    const gridElement = document.querySelector('.preview-grid');
+    const gridElement = document.querySelector('.location-modal-wrapper-'+band);
+    console.log("Grid: ", gridElement)
     if (gridElement) {
-      gridElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      gridElement.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start'});
     }
   };
 
@@ -57,7 +58,7 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
 
         console.log("Grid: ", mediaArray)
         return (
-          <div>
+          <div className={'location-modal-wrapper location-modal-wrapper-'+band}>
             <React.Fragment key={band}>
               <div className="location-modal-container">
               <h3 className="location-modal-band" style={{'display': 'block'}}>{band}</h3>
