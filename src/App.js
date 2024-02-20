@@ -103,8 +103,13 @@ function App() {
   };
 
   const onSelectLocation = (location) => {
-    setSelectedLocation(location);
-    setShowLocationModal(true); 
+    if(location) {
+      setSelectedLocation(location);
+      setShowLocationModal(true); 
+    } else {
+      setSelectedLocation(null);
+      setShowLocationModal(false);
+    }
   };
 
   const closeLocationModal = () => {

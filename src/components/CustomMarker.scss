@@ -25,6 +25,10 @@ $background3: url('grunge-banner-3.svg');
   }
 }
 
+.marker-wrapper > *{
+  z-index: 10000;
+}
+
 
 .marker-tint-overlay {
   position: relative;
@@ -131,6 +135,10 @@ $background3: url('grunge-banner-3.svg');
 
 .hover-info-svg {
   animation: appear-ltr 0.25s ease-out alternate;
+
+  &.svg-clean {
+    animation: none;
+  }
   
 }
 
