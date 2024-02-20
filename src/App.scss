@@ -293,6 +293,7 @@
   align-items: center;
   backdrop-filter: blur(4px) brightness(0.5);
   max-height: 100vh;
+  z-index: 1000;
 }
 
 .modal-content {
