@@ -134,8 +134,9 @@ function App() {
             <p>Welcome!</p>
             <p>As a little celebration for the 5th anniversary, we asked fans from all over the world to submit their pictures, art and covers.</p>
             <p>Secret projects make asking for content a little difficult... If you'd like to help expand the map, you can send your things to:</p>
-            <p>developersola@gmail.com</p>
-            <p>Please include a location and optionally a name or username, if you wish to be credited!</p>
+            <a href="mailto:developersola@gmail.com"><p>developersola@gmail.com</p></a>
+            <p>Please include a location and if desired, a name to credit.</p>
+            <hr></hr>
             <p>A huge thank you to cleopatrick, ready the prince and zig mentality for bringing us all together. Wherever we are in the world, we know what good rock is - here's to many more years of it.</p>
             <p>Thank you to FGMads for organising the anniversary projects, and to everyone who submitted content and time to help bring this project to life.</p>
             <p>Feedback and suggestions are more than welcome, send and email or reach me <a href="https://soladevs.github.io/contact">here</a>!</p>
