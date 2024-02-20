@@ -130,8 +130,6 @@ function App() {
         )}
         {showLocationModal && selectedLocation && (
             <div className="location-modal-content">
-              <h2 className="location-modal-name">{selectedLocation.name}</h2>
-              <h3 className="location-modal-country">{selectedLocation.country}</h3>
               <PreviewGrid city={selectedLocation.name} country={selectedLocation.country} imagesLoaded={imagesLoaded} mediaItems={selectedLocation.mediaItems} />
             </div>
         )}
