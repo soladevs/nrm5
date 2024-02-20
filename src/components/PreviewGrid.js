@@ -19,10 +19,13 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
   };
   
   const handleShowMoreClick = (band) => {
-    setBandMinimizedState((prevState) => ({
-      ...prevState,
-      [band]: !prevState[band]
-    }));
+    setBandMinimizedState((prevState) => {
+      const isMinimized = prevState[band] === undefined ? true : prevState[band];
+      return {
+        ...prevState,
+        [band]: !isMinimized
+      };
+    });
 
     // Scroll to the top of the grid after updating the isMinimized state
     const gridElement = document.querySelector('.preview-grid');
