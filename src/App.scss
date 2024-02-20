@@ -21,22 +21,24 @@
 .nav-logo-text {
   letter-spacing: 0;
   text-align: center;
-  font-size: 1.5rem;
-  text-transform: uppercase;
+  font-size: 2rem;
+  text-transform: lowercase;
   @media screen and (min-width: 768px) {
-    font-size: 2.2rem;
+    font-size: 3rem;
   }
 }
 
 .nav-logo-subtext {
   letter-spacing: normal;
+  margin-top: -0.5rem;
 
   text-align: center;
   font-size: 1.2rem;
-  text-transform: none;
+  text-transform: lowercase;
 
   @media screen and (min-width: 768px) {
-    font-size: 1.5rem;
+  margin-top: -1rem;
+  font-size: 1.5rem;
   }
 
 }
