@@ -452,9 +452,9 @@ body.modal-open .leaflet-control-container {
   font-size: 2rem;
   margin-left: auto;
   margin-right: auto;
-  background-color: #FFC927; /* Set your desired background color */
+  background-color: darken(#FFC927, 5%); /* Set your desired background color */
   border-color: #FFC927;
-  border-bottom: 4px solid darken(#FFC927, 30%);
+  border-bottom: 4px solid darken(#FFC927, 20%);
   color: #1c1c1c;
   transition: height 0.3s; /* Add a transition for smooth animation */
   z-index: 999;
@@ -468,7 +468,7 @@ body.modal-open .leaflet-control-container {
   }
 
   &:hover {
-    background-color: darken(#FFC927, 10%);
+    background-color: darken(#FFC927, 20%);
     transform: scale(1.1);
   }
 }
