@@ -122,6 +122,12 @@ function App() {
         </div>
         </nav>
         <div className="sidebar">
+        {!showLocationModal && !selectedLocation && (
+          <div className="location-modal-content">
+          <h2 className="location-modal-name">Tap a marked location</h2>
+          <h3 className="location-modal-country">to view content submitted from there!</h3>
+        </div>
+        )}
         {showLocationModal && selectedLocation && (
             <div className="location-modal-content">
               <h2 className="location-modal-name">{selectedLocation.name}</h2>
