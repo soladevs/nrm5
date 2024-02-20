@@ -7,28 +7,27 @@ import PreviewGrid from './components/PreviewGrid';
 import ReactPlayer from 'react-player';
 import contentMetadata from './content/content-metadata.json';
 
-//"Bremen", "Dresden", "Hamburg", "London", "Los Angeles", "Nashville", "Tunbridge Wells", "Birmingham"
-//Austin, Boston, Bristol, Guelph, Newcastle, New York City, San Francisco, Toronto
 const tours = [
   {
     strokeColor: "white",
     locations: [
       { lat: 53.0793, lng: 8.8017, name: 'Bremen', country: 'Germany', bands: ['cleopatrick', 'readytheprince']},
-      { lat: 34.052235, lng: -118.243683, name: 'Los Angeles', country: 'USA', bands: ['cleopatrick']},
+      { lat: 34.052235, lng: -118.243683, name: 'Los Angeles', country: 'United States', bands: ['cleopatrick']},
       { lat: 51.507351, lng: -0.127758, name: 'London', country: 'UK', bands: ['cleopatrick']},
       { lat: 53.551086, lng: 9.993682, name: 'Hamburg', country: 'Germany', bands: ['cleopatrick']},
-      { lat: 36.162663, lng: -86.781601, name: 'Nashville', country: 'USA', bands: ['cleopatrick']},
+      { lat: 36.162663, lng: -86.781601, name: 'Nashville', country: 'United States', bands: ['cleopatrick']},
       { lat: 51.1324, lng: 0.2637, name: 'Tunbridge Wells', country: 'UK', bands: ['cleopatrick']},
       { lat: 51.0504, lng: 13.7373, name: 'Dresden', country: 'Germany', bands: ['readytheprince']},
       { lat: 52.4862, lng: -1.8904, name: 'Birmingham', country: 'UK', bands: ['cleopatrick']},
-      { lat: 30.2672, lng: -97.7431, name: 'Austin', country: 'UK', bands: ['cleopatrick']},
-      { lat: 42.3601, lng: -71.0589, name: 'Boston', country: 'UK', bands: ['cleopatrick']},
+      { lat: 30.2672, lng: -97.7431, name: 'Austin', country: 'United States', bands: ['cleopatrick']},
+      { lat: 42.3601, lng: -71.0589, name: 'Boston', country: 'United States', bands: ['cleopatrick']},
       { lat: 51.4545, lng: -2.5879, name: 'Bristol', country: 'UK', bands: ['cleopatrick']},
       { lat: 43.5448, lng: -80.2482, name: 'Guelph', country: 'Canada', bands: ['cleopatrick']},
       { lat: 54.9783, lng: -1.6178, name: 'Newcastle', country: 'UK', bands: ['cleopatrick']},
-      { lat: 40.7128, lng: -74.0060, name: 'New York City', country: 'UK', bands: ['cleopatrick']},
-      { lat: 37.7749, lng: -122.4194, name: 'San Francisco', country: 'UK', bands: ['cleopatrick']},
-      { lat: 43.6532, lng: -79.3832, name: 'Toronto', country: 'UK', bands: ['cleopatrick']},
+      { lat: 40.7128, lng: -74.0060, name: 'New York City', country: 'United States', bands: ['cleopatrick']},
+      { lat: 37.7749, lng: -122.4194, name: 'San Francisco', country: 'United States', bands: ['cleopatrick']},
+      { lat: 43.6532, lng: -79.3832, name: 'Toronto', country: 'Canada', bands: ['cleopatrick']},
+      { lat: 31.0461 , lng: 34.8516, name: 'Israel', country:' ', bands: ['cleopatrick']},
     ]
   },
 ];

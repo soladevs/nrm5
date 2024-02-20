@@ -1073,5 +1073,53 @@
     "band": "cleopatrick",
     "city": "Bristol",
     "country": "United Kingdom"
+  },
+  {
+    "src": "https://youtu.be/HgzUSfwT5WE",
+    "type": "video",
+    "submitter": "John Doe",
+    "band": "cleopatrick",
+    "city": "New York City",
+    "country": "United States"
+  },
+  {
+    "src": "https://youtu.be/mGpFHSplJs0",
+    "type": "video",
+    "submitter": "John Doe",
+    "band": "cleopatrick",
+    "city": "Israel",
+    "country": " "
+  },
+  {
+    "src": "https://youtu.be/lGVrzS6Obgs",
+    "type": "video",
+    "submitter": "John Doe",
+    "band": "cleopatrick",
+    "city": "Austin",
+    "country": "United States"
+  },
+  {
+    "src": "https://youtu.be/B7Y9MG5seJw",
+    "type": "video",
+    "submitter": "John Doe",
+    "band": "cleopatrick",
+    "city": "Toronto",
+    "country": "Canada"
+  },
+  {
+    "src": "https://youtu.be/l9E5hlNGX2c",
+    "type": "video",
+    "submitter": "John Doe",
+    "band": "cleopatrick",
+    "city": "San Francisco",
+    "country": "United States"
+  },
+  {
+    "src": "https://cdn.discordapp.com/attachments/1059119419764244604/1209399351663665172/bristol_2.mp4?ex=65e6c7ea&is=65d452ea&hm=dfd4fe04d8a1bf3e29a41f494ec902a3016c6a7c7bb26643c84ddc85c6fb13de&",
+    "type": "video",
+    "submitter": "John Doe",
+    "band": "cleopatrick",
+    "city": "Bristol",
+    "country": "United Kingdom"
   }
 ]

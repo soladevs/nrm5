@@ -277,8 +277,14 @@
 .thumbnail img,
 .thumbnail video {
   width: auto;
-  max-height: 25vh;
+  max-height: 23vh;
   cursor: pointer;
+}
+
+.thumbnail {
+  :hover {
+      transform: scale(1.1);
+  }
 }
 
 .modal-overlay {
@@ -304,6 +310,8 @@
 
   margin-left: auto;
   margin-right: auto;
+  min-width: 95vw;
+
 }
 
 .modal-content img,
@@ -313,12 +321,16 @@
 
   max-height: 70vh;
   width: auto;
+  max-width: 95vw;
 
   @media screen and (min-width: 1024px) {
-    max-width: 80vw;
-    max-height: 80vh;
+    max-width: 95vw;
     
   }
+}
+
+.modal-content video {
+  min-width: 80vw;
 }
 
 .thumbnail video, .react-player__preview, .react-player-preview {

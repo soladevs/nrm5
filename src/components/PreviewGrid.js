@@ -60,7 +60,7 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
                       {media.type === 'image' ? (
                         <img src={media.src} alt="Thumbnail" />
                       ) : (
-                        <ReactPlayer className="react-player-preview" url={media.src} controls={false} light={true} />
+                        <ReactPlayer className="react-player-preview" url={media.src} controls={true} light={true} />
                       )}
                     </div>
                   ))
