@@ -115,8 +115,11 @@ function App() {
     <div className="app">
       <nav className="navbar">
         <ul className="nav-links">
-          <span className="nav-logo-text">NRM 5TH ANNIVERSARY</span>
+          <span className="nav-logo-text">NEW ROCK MAFIA</span>
+          <span className="nav-logo-subtext">{"Happy 5th anniversary from fans around the world <3"}</span>
         </ul>
+        <div>
+        </div>
         </nav>
         <div className="sidebar">
         {showLocationModal && selectedLocation && (
