@@ -6,7 +6,7 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
   const [selectedMedia, setSelectedMedia] = useState(null); 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOverlayActive, setIsOverlayActive] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(true);
+  const [bandMinimizedState, setBandMinimizedState] = useState({});
 
   const handleMediaClick = (media) => {
     setSelectedMedia(media);
@@ -18,9 +18,12 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
     setIsModalOpen(false);
   };
   
-  const handleShowMoreClick = () => {
-    setIsMinimized(!isMinimized);
-  
+  const handleShowMoreClick = (band) => {
+    setBandMinimizedState((prevState) => ({
+      ...prevState,
+      [band]: !prevState[band]
+    }));
+
     // Scroll to the top of the grid after updating the isMinimized state
     const gridElement = document.querySelector('.preview-grid');
     if (gridElement) {
@@ -47,6 +50,8 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
     { mediaItems &&
         Object.keys(mediaItems).map((band) => {
         const mediaArray = mediaItems[band].mediaItems;
+        const isMinimized = bandMinimizedState[band] === undefined ? true : bandMinimizedState[band]; 
+
         console.log("Grid: ", mediaArray)
         return (
           <div>
@@ -70,7 +75,7 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
               {mediaArray.length > 4 && (
                   <button
                     className={`show-more-button ${isMinimized ? 'minimized' : ''}`}
-                    onClick={handleShowMoreClick}
+                    onClick={() => handleShowMoreClick(band)}
                   >
                     {isMinimized ? 'Show More' : 'Show Less'}
                   </button>
