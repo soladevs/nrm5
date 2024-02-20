@@ -60,7 +60,7 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
               <h3 className="location-modal-band" style={{'display': 'block'}}>{band}</h3>
               <div className={isMinimized ? 'content minimized' : 'content'}>
                 {
-                  mediaArray.slice(0, isMinimized ? 4 : mediaArray.length).map((media, index) => (
+                  mediaArray.slice(0, isMinimized ? 6 : mediaArray.length).map((media, index) => (
                     <div key={index + "" + media.src} className="thumbnail" onClick={() => handleMediaClick(media)}>
                       {media.type === 'image' ? (
                         <img src={media.src} alt="Thumbnail" />
@@ -72,7 +72,7 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
                 }
               </div>
               </div>
-              {mediaArray.length > 4 && (
+              {mediaArray.length > 7 && (
                   <button
                     className={`show-more-button ${isMinimized ? 'minimized' : ''}`}
                     onClick={() => handleShowMoreClick(band)}
@@ -104,10 +104,14 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
           <div></div>
           <div className='modal-sidebar'>
             <div className="modal-sidebar-content">
-              <div>
-                <p>submitted by:</p>
-                <h2>{selectedMedia.submitter}</h2>
-              <div>
+                <div>
+                  {selectedMedia.submitter && (
+                  <div>
+                    <p>submitted by:</p>
+                    <h2>{selectedMedia.submitter}</h2>
+                   </div>
+                )}
+                <div>
                 <p>location:</p>
                 <h2>{city}, </h2>
                 <h2>{country}</h2>
