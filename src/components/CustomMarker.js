@@ -5,8 +5,7 @@ import './CustomMarker.scss';
 import NRMHand from './nrmb.png';
 
 
-const CustomMarker = ({ position, onClick, colors, index, mediaItemsLength, city, country }) => {
-  const [colorToUse, setColorToUse] = useState(null);
+const CustomMarker = ({ position, onClick, index, mediaItemsLength, city, country }) => {
   const [mediaLength, setMediaLength] = useState(null);
   const iconRef = React.useRef();
   const [size, setSize] = useState(15);
@@ -14,6 +13,9 @@ const CustomMarker = ({ position, onClick, colors, index, mediaItemsLength, city
   const [zIndex, setZIndex] = useState(20);
   const [classNameToAdd, setClassNameToAdd] = useState('svg-first');
   const [hovered, setHovered] = useState(false);
+  const colorToUse ='#FFC927'
+
+  const randomNumberInRange = (min, max) => { return Math.floor(Math.random() * (max - min + 1)) + min; };
 
   const handleMouseEnter = () => {
     setHovered(true);
@@ -43,23 +45,17 @@ const CustomMarker = ({ position, onClick, colors, index, mediaItemsLength, city
   }, [mediaItemsLength]);
 
   useEffect(() => {
-    if (index !== undefined && colors[index] !== undefined) {
-      setColorToUse(colors[index]);
-    }
-  }, [colors, index, mediaItemsLength, size]);
-
-  useEffect(() => {
     // Update marker size based on mediaItemsLength
-    if (mediaItemsLength !== null) {
+    if (mediaItemsLength !== null && mediaItemsLength > 0) {
       setSize(25 + mediaItemsLength * 2);
       console.log("Media items length:", mediaItemsLength);
       console.log("Marker size:", size);
+    } else {
+      setSize(40 + randomNumberInRange(0, 25));
     }
   }, [mediaItemsLength, size]);
 
   useEffect(() => {
-    if (!colorToUse || size === null || size === undefined) return; // Skip if colorToUse is null or size is not valid
-  
     // Replace with nrm.png
     //const htmlSvg = `<div class="marker-wrapper"><svg width="${size}" height="${size}" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"> <path d="M100.106 0L115 54.1591L158.884 19.0983L139.1 71.6687L195.211 69.0983L148.306 100L195.211 130.902L139.1 128.331L158.884 180.902L115 145.841L100.106 200L85.211 145.841L41.3271 180.902L61.111 128.331L5 130.902L51.9057 100L5 69.0983L61.111 71.6687L41.3271 19.0983L85.211 54.1591L100.106 0Z" fill="${colorToUse}" /> </svg></div>`;
     
@@ -74,7 +70,7 @@ const CustomMarker = ({ position, onClick, colors, index, mediaItemsLength, city
     // Update the icon state
     setIcon(newIcon);
     iconRef.current?.setIcon(newIcon);
-  }, [colorToUse, size]);
+  }, [size]);
 
   return (
     <Marker 

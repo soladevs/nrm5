@@ -4,11 +4,18 @@ import 'leaflet/dist/leaflet.css';
 import CustomMarker from './CustomMarker';
 import countriesBorders from './borders.json';
 
-const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => {
-  const [randomColors, setRandomColors] = useState();
+const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour, fetchImages }) => {
+  const [mediaItems, setMediaItems] = useState({});
 
-  const handleMarkerClick = (location, tour) => {
-    onSelectLocation(location, tour);
+  const handleMarkerClick = async (location, tour) => {
+    try {
+      const newMediaItems = await fetchImages(location.folderName);
+      location.mediaItems = newMediaItems;
+      setMediaItems(newMediaItems);
+      onSelectLocation(location, tour);
+    } catch (error) {
+      console.error('Error fetching images:', error);
+    }
   };
 
   const handleLineClick = (tour) => {
@@ -61,26 +68,6 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => 
     return <Polyline positions={positions} color={activeTour ? (activeTour === tour.name ? tour.color : 'transparent') : 'transparent'} onClick={() => handleLineClick(tour)} />;
   };
 
-  const generateRandomColor = () => {
-    const red = Math.floor(Math.random()  * 256); // Random value between 0 and 255
-    const green = Math.floor(Math.random() * 256); // Random value between 0 and 255
-    const blue = Math.floor(Math.random() * 256); // Random value between 0 and 255
-  
-    // Convert the RGB values to hexadecimal and format the color
-    const colorHex = `#${red.toString(16).padStart(2, '0')}${green.toString(16).padStart(2, '0')}${blue.toString(16).padStart(2, '0')}`;
-  
-    return colorHex;
-  }
-
-  // Initialize randomColors as a 2D array
- useEffect(() => {
-    const initialRandomColors = tours[0].locations.map(() => generateRandomColor());
-
-    // Set the initial random colors in state
-    setRandomColors(initialRandomColors);
-    console.log(initialRandomColors);
-    
-  }, [tours]);
 
   const getTotalMediaItemsLength = (mediaItems) => {
     let totalLength = 0;
@@ -95,29 +82,22 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => 
   };
 
   const renderCustomMarker = (tour, location, index) => {
-    if (location.mediaItems) {
-      const mediaItemsLength = getTotalMediaItemsLength(location.mediaItems);
-      return (
-        <CustomMarker
-          key={`${location.name}-${index}`}
-          position={{ lat: location.lat, lng: location.lng }}
-          onClick={() => handleMarkerClick(location, tour)}
-          colors={randomColors} 
-          index={index}
-          mediaItemsLength={mediaItemsLength}
-          strokeColor={'#1c1c1c'}
-          city={location.name}
-          country={location.country}
-        />
-      );
-
-    } else {
-      setTimeout(() => {
-        onSelectLocation(null, null);
-        renderCustomMarker(tour, location, index);
-      }, 250);
-    }
-      };
+    const locationMediaItems = mediaItems[location.folderName]?.mediaItems || [];
+    const mediaItemsLength = getTotalMediaItemsLength(locationMediaItems);
+    
+    return (
+      <CustomMarker
+        key={`${location.name}-${index}`}
+        position={{ lat: location.lat, lng: location.lng }}
+        onClick={() => handleMarkerClick(location, tour)}
+        index={index}
+        mediaItemsLength={mediaItemsLength}
+        strokeColor={'#1c1c1c'}
+        city={location.name}
+        country={location.country}
+      />
+    );
+  };
 
   return (
       <MapContainer 
@@ -127,8 +107,8 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => 
       minZoom={3}
       scrollWheelZoom={true}
       maxBounds={[
-        [-90, -180],
-        [90, 180]
+        [-90, -360],
+        [90, 360]
       ]}
       maxBoundsViscosity={1.0}
       >
@@ -138,13 +118,12 @@ const MapComponent = ({ tours, onSelectTour, onSelectLocation, activeTour }) => 
         style={{color: '#FFC927', fill: false, weight: 0.1}}
         onEachFeature={onEachFeature}
       />
-      {tours.length > 0 && tours && tours[0].locations && randomColors && (
-        tours.map((tour, tourIndex) => (
+        
+        {tours.map((tour, tourIndex) => (
           tour.locations.map((location, index) => (
             renderCustomMarker(tour, location, index)
           ))
-        ))
-      )}
+        ))}
 
       {/* Render lines */}
       {tours.map((tour) => (

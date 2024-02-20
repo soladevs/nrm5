@@ -23,43 +23,6 @@ const fileNameArray = {
   '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg']},
 };
 
-const fetchImages = async (folderName) => {
-  try {
-    const folderPath = `./img/${folderName}`;
-    const fileNames = fileNameArray[folderName].images;
-    const imagePromises = fileNames.map((fileName) => fetch(`${folderPath}/${fileName}`));
-
-    const mediaItems = await Promise.all(imagePromises);
-
-    const mediaItemsWithMetadata = {
-    };
-
-    const bandName = folderName.split('/')[0];
-
-    if (!mediaItemsWithMetadata[bandName]) {
-      mediaItemsWithMetadata[bandName] = {
-        mediaItems: []
-      };
-    }
-
-    mediaItems.forEach((media) => {
-        mediaItemsWithMetadata[bandName].mediaItems.push({
-          src: media.url,
-          type: media.url.endsWith('.mp4') ? 'video' : 'image',
-          submitter: 'John Doe',
-          country: 'USA'
-        });
-    });
-
-    console.log('Media items:', mediaItemsWithMetadata);
-
-    return mediaItemsWithMetadata;
-
-  } catch (error) {
-    console.error('Error fetching images:', error);
-  }
-}
-
 const tours = [
   {
     strokeColor: "white",
@@ -76,17 +39,7 @@ const tours = [
   },
 ];
 
-const fetchAllImages = async () => {
-  await Promise.all(tours.map(async (tour) => {
-    await Promise.all(tour.locations.map(async (location) => {
-      const mediaItems = await fetchImages(location.folderName);
-      location.mediaItems = mediaItems;
-    }));
-  }));
-};
 
-// Call the fetchAllImages function to load all media items for each location
-fetchAllImages();
 
 function App() {
   const [selectedTour, setSelectedTour] = useState(null);
@@ -94,6 +47,46 @@ function App() {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [showLocationModal, setShowLocationModal] = useState(false);
   const [showTourModal, setShowTourModal] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false); 
+
+  const fetchImages = async (folderName) => {
+    console.log('fetching images from folder:', folderName);
+    try {
+      const folderPath = `./img/${folderName}`;
+      const fileNames = fileNameArray[folderName].images;
+      const imagePromises = fileNames.map((fileName) => fetch(`${folderPath}/${fileName}`));
+  
+      const mediaItems = await Promise.all(imagePromises);
+  
+      const mediaItemsWithMetadata = {};
+  
+      const bandName = folderName.split('/')[0];
+  
+      if (!mediaItemsWithMetadata[bandName]) {
+        mediaItemsWithMetadata[bandName] = {
+          mediaItems: [],
+        };
+      }
+  
+      mediaItems.forEach((media) => {
+        mediaItemsWithMetadata[bandName].mediaItems.push({
+          src: media.url,
+          type: media.url.endsWith('.mp4') ? 'video' : 'image',
+          submitter: 'John Doe',
+          country: 'USA',
+        });
+      });
+  
+      console.log('Media items:', mediaItemsWithMetadata);
+      
+      return mediaItemsWithMetadata;
+    } catch (error) {
+      console.error('Error fetching images:', error);
+    } finally {
+      setImagesLoaded(true);
+      console.log('Images loaded:', imagesLoaded);
+    }
+  };
 
   const onSelectTour = (tour) => {
     setSelectedTour(tour);
@@ -101,7 +94,6 @@ function App() {
     toggleTourModal();
   };
 
-  // Function to handle the left navigation button
   const handlePrevClick = () => {
     if (selectedTour) {
       setCarouselIndex((prevIndex) => {
@@ -145,16 +137,16 @@ function App() {
         </ul>
         </nav>
         <div className="sidebar">
-      {showLocationModal && selectedLocation && (
-          <div className="location-modal-content">
-            <h2 className="location-modal-name">{selectedLocation.name}</h2>
-            <h3 className="location-modal-country">{selectedLocation.country}</h3>
-            <PreviewGrid city={selectedLocation.name} country={selectedLocation.country} mediaItems={selectedLocation.mediaItems} />
-          </div>
-      )}
-      </div>
+        {showLocationModal && selectedLocation && (
+            <div className="location-modal-content">
+              <h2 className="location-modal-name">{selectedLocation.name}</h2>
+              <h3 className="location-modal-country">{selectedLocation.country}</h3>
+              <PreviewGrid city={selectedLocation.name} country={selectedLocation.country} imagesLoaded={imagesLoaded} mediaItems={selectedLocation.mediaItems} />
+            </div>
+        )}
+        </div>
       <main className="main-content">
-        <MapComponent tours={tours} onSelectTour={onSelectTour} onSelectLocation={onSelectLocation} activeTour={selectedTour?.name} />
+        <MapComponent tours={tours} onSelectTour={onSelectTour} onSelectLocation={onSelectLocation} activeTour={selectedTour?.name} fetchImages={fetchImages} />
       </main>
     </div>
   );

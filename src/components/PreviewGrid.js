@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Modal from './Modal'; 
 import ReactPlayer from 'react-player';
 
-const PreviewGrid = ({ city, country, mediaItems }) => {
+const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
   const [selectedMedia, setSelectedMedia] = useState(null); 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOverlayActive, setIsOverlayActive] = useState(false);
@@ -36,6 +36,11 @@ const PreviewGrid = ({ city, country, mediaItems }) => {
     }
   }, [isModalOpen]);
 
+  useEffect(() => {
+    if (imagesLoaded) {
+      // Do something when images are loaded, if needed
+    }
+  }, [imagesLoaded]);
 
   return (
     <div className="preview-grid">
