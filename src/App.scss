@@ -10,7 +10,7 @@
   height: 12vh;
   width: 100vw;
   background-color: #111;
-  color: white;
+  color: rgb(243, 240, 226);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,7 +71,7 @@
   background: none;
   border: none;
   font-size: 5em;
-  color: white;
+  color: rgb(243, 240, 226);
   text-shadow: black 0 0 11px;
   cursor: pointer;
   z-index: 2; /* Ensure it's above the carousel images */
@@ -96,7 +96,7 @@
 
 
 .placeholder-circle p {
-  color: white;
+  color: rgb(243, 240, 226);
 }
 
 .modal-backdrop {
@@ -162,7 +162,7 @@
   height: 100%;
   z-index: 10; /* Ensure the modal is above all other content */
   display: flex;
-  color: white;
+  color: rgb(243, 240, 226);
 }
 
 .location-modal-name {
@@ -404,7 +404,7 @@
 }
 
 .modal-close-button {
-  background-color: white;
+  background-color: rgb(243, 240, 226);
   color: black; 
   margin:32px;
   font-size: 1rem;
