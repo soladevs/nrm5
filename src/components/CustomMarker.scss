@@ -187,8 +187,8 @@ $background3: url('grunge-banner-3.svg');
 
 /*brush stroke ish one */
 .svg-brush {
-  //filter: drop-shadow(0.15rem 0.15rem 0.15rem #FFC927);
-  filter: drop-shadow(0.15rem 0.15rem 0.15rem red);
+  filter: drop-shadow(0.15rem 0.15rem 0.15rem #FFC927);
+  // filter: drop-shadow(0.15rem 0.15rem 0.15rem red);
   background-image: $background1;
   width: 70vw;
   height: 35vh;
@@ -209,8 +209,8 @@ $background3: url('grunge-banner-3.svg');
 /*clean one*/
 .svg-clean {
   background-image: $background2;
-  //filter: drop-shadow(0.15rem 0.15rem 0.15rem #FFC927);
-  filter: drop-shadow(0.15rem 0.15rem 0.15rem blue);
+  filter: drop-shadow(0.15rem 0.15rem 0.15rem #FFC927);
+  // filter: drop-shadow(0.15rem 0.15rem 0.15rem blue);
   
   width: 70vw;
   height: 45vh;
@@ -230,8 +230,8 @@ $background3: url('grunge-banner-3.svg');
 /*graffiti ish one*/
 .svg-graffiti {
   transform: rotate(180deg);
-  //filter: drop-shadow(0 0 0.15rem #FFC927);
-  filter: drop-shadow(0.15rem 0.15rem 0.15rem green);
+  filter: drop-shadow(0 0 0.15rem #FFC927);
+  //filter: drop-shadow(0.15rem 0.15rem 0.15rem green);
 
   height: 85vh; 
   width: 70vw;
