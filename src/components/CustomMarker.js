@@ -67,7 +67,7 @@ const CustomMarker = ({ position, onClick, index, mediaItemsLength, city, countr
     //const htmlSvg = `<div class="marker-wrapper"><svg width="${size}" height="${size}" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"> <path d="M100.106 0L115 54.1591L158.884 19.0983L139.1 71.6687L195.211 69.0983L148.306 100L195.211 130.902L139.1 128.331L158.884 180.902L115 145.841L100.106 200L85.211 145.841L41.3271 180.902L61.111 128.331L5 130.902L51.9057 100L5 69.0983L61.111 71.6687L41.3271 19.0983L85.211 54.1591L100.106 0Z" fill="${colorToUse}" /> </svg></div>`;
     
     const htmlPng = `<div class="marker-wrapper"><img class="marker-image"src="${NRMHand}" width="${size}" height="${size}" /></div>`;
-    const htmlWithTintOverlay = `<div class="marker-tint-overlay">${htmlPng}</div>`;
+    const htmlWithTintOverlay = hovered ? `<div class="marker-tint-overlay marker-tint-overlay-active">${htmlPng}</div>` : `<div class="marker-tint-overlay">${htmlPng}</div>`
     const newIcon = new L.DivIcon({
       className: 'custom-marker',
       html: htmlWithTintOverlay,
@@ -77,11 +77,11 @@ const CustomMarker = ({ position, onClick, index, mediaItemsLength, city, countr
     // Update the icon state
     setIcon(newIcon);
     iconRef.current?.setIcon(newIcon);
-  }, [size]);
+  }, [selectedLocation, size, hovered]);
 
   return (
     <Marker 
-      position={position} 
+      position={position}
       eventHandlers={{ click: onClick, mouseover: handleMouseEnter, mouseout: handleMouseLeave }}
       ref={iconRef} 
     >

@@ -39,6 +39,10 @@ $background3: url('grunge-banner-3.svg');
   }
 }
 
+.marker-tint-overlay-active {
+  animation: bloom-pulse 0.8s normal forwards;
+}
+
 .marker-tint-overlay::before {
   content: '';
   position: absolute;
@@ -64,11 +68,11 @@ $background3: url('grunge-banner-3.svg');
   }
 
   45% {
-    transform: scale(1.6);
+      transform: scale(1.6);
   }
   100% {
-    filter: brightness(1.4) contrast(1.4);
-    transform: scale(1.2);
+    filter: brightness(1.4) contrast(1.1);
+    transform: scale(1);
   }
 }
 
