@@ -385,16 +385,19 @@ body.modal-open .leaflet-control-container {
 
 .content {
   transition: height 0.3s; /* Add a transition for smooth animation */
-  padding-bottom: 1vh;
+  padding-bottom: 3vh;
 }
 
 .content.minimized {
   min-height: 22vh;
   max-height: 55vh;
+
 }
 
 .show-more-button {
   overflow: visible;
+
+  margin-bottom: 7vh;
 }
 
 .show-more-button, .modal-close-button {

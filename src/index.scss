@@ -74,8 +74,13 @@ body, #root, .app {
   margin-bottom: 8px;
 }
 
+.location-modal-container {
+  margin-top: 0;
+}
+
 .location-modal-band {
   text-align: center;
   text-decoration: underline;
+  margin-top: 0;
   font-size: 2rem;
 }

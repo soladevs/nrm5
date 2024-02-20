@@ -56,7 +56,7 @@ const PreviewGrid = ({ city, country, mediaItems, imagesLoaded }) => {
         return (
           <div>
             <React.Fragment key={band}>
-              <div>
+              <div className="location-modal-container">
               <h3 className="location-modal-band" style={{'display': 'block'}}>{band}</h3>
               <div className={isMinimized ? 'content minimized' : 'content'}>
                 {
