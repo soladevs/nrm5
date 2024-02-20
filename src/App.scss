@@ -279,8 +279,8 @@
 
 .content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 20px;
 }
 
 .thumbnail img,
@@ -296,7 +296,10 @@
     transform: scale(1.1);
   }
 }
+
 .react-player-preview {
+  max-height: 23vh;
+
   :hover {
     border: 1px solid #FFC927;
   }
